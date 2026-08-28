@@ -12,7 +12,6 @@ const links = [
   { href: "/montgomery-county-property-tax-appeal", label: "Montgomery County" },
   { href: "/philadelphia-property-tax-appeal", label: "Philadelphia" },
   { href: "/tools", label: "Tools" },
-  { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -29,7 +28,7 @@ const Navigation = (_props: NavigationProps) => {
           philly tax appeals
         </a>
 
-        <div className="hidden md:flex items-center gap-7 font-body text-sm font-semibold text-foreground">
+        <div className="hidden lg:flex items-center gap-7 font-body text-sm font-semibold text-foreground">
           {links.map((link) => (
             <a
               key={link.href + link.label}
@@ -44,7 +43,7 @@ const Navigation = (_props: NavigationProps) => {
         <div className="flex items-center gap-3 shrink-0">
           <button
             type="button"
-            className="md:hidden p-2 text-foreground hover:opacity-70 transition-opacity duration-150 ease-out"
+            className="lg:hidden p-2 text-foreground hover:opacity-70 transition-opacity duration-150 ease-out"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
@@ -61,7 +60,7 @@ const Navigation = (_props: NavigationProps) => {
       </div>
 
       {open && (
-        <div className="md:hidden border-t border-border bg-background px-6 py-4 flex flex-col gap-4 font-body text-sm font-semibold text-foreground">
+        <div className="lg:hidden border-t border-border bg-background px-6 py-4 flex flex-col gap-4 font-body text-sm font-semibold text-foreground">
           {links.map((link) => (
             <a
               key={`mobile-${link.href}-${link.label}`}

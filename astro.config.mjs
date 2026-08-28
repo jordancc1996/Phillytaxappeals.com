@@ -13,8 +13,7 @@ export default defineConfig({
       filter: (page) =>
         !page.includes('/privacy-policy') &&
         !page.includes('/404') &&
-        !page.includes('/news') &&
-        !page.includes('/tools'),
+        !page.includes('/news'),
     }),
   ],
   trailingSlash: 'never',

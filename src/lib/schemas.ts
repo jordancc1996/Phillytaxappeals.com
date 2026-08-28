@@ -59,6 +59,22 @@ export type FaqSchemaItem = {
   answer: string;
 };
 
+const SITE_URL = "https://phillytaxappeals.com";
+
+export const breadcrumbListNode = (
+  pageUrl: string,
+  crumbs: { name: string; item: string }[],
+) => ({
+  "@type": "BreadcrumbList",
+  "@id": `${pageUrl}#breadcrumb`,
+  itemListElement: crumbs.map((crumb, index) => ({
+    "@type": "ListItem",
+    position: index + 1,
+    name: crumb.name,
+    item: crumb.item,
+  })),
+});
+
 const faqPageNode = (
   url: string,
   items: FaqSchemaItem[],
@@ -136,13 +152,10 @@ export const createCountyPageSchema = (
       "name": `${county} Property Tax Appeals`,
       "isPartOf": { "@id": "https://phillytaxappeals.com/#website" },
       "about": { "@id": `${url}#service` },
-      "breadcrumb": {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Philly Tax Appeals", "item": "https://phillytaxappeals.com" },
-          { "@type": "ListItem", "position": 2, "name": `${county} Property Tax Appeals`, "item": url }
-        ]
-      }
+      "breadcrumb": breadcrumbListNode(url, [
+        { name: "Home", item: SITE_URL },
+        { name: county, item: url },
+      ])
     },
     ...(faqItems.length ? [faqPageNode(url, faqItems)] : []),
     baseWebsite
@@ -160,7 +173,11 @@ export const createContactPageSchema = (faqItems: FaqSchemaItem[] = []) => ({
       "name": "Contact Philly Tax Appeals",
       "description": "Get a free property tax assessment evaluation. Contact our team of property tax appeal experts serving Philadelphia and surrounding counties.",
       "isPartOf": { "@id": "https://phillytaxappeals.com/#website" },
-      "about": { "@id": "https://phillytaxappeals.com/#organization" }
+      "about": { "@id": "https://phillytaxappeals.com/#organization" },
+      "breadcrumb": breadcrumbListNode("https://phillytaxappeals.com/contact", [
+        { name: "Home", item: SITE_URL },
+        { name: "Contact", item: "https://phillytaxappeals.com/contact" },
+      ])
     },
     ...(faqItems.length ? [faqPageNode("https://phillytaxappeals.com/contact", faqItems)] : []),
     baseWebsite
@@ -178,7 +195,13 @@ export const createFaqPageSchema = (
   "@context": "https://schema.org",
   "@graph": [
     baseOrganization,
-    faqPageNode(url, items, { name, description }),
+    {
+      ...faqPageNode(url, items, { name, description }),
+      breadcrumb: breadcrumbListNode(url, [
+        { name: "Home", item: SITE_URL },
+        { name: "FAQ", item: url },
+      ]),
+    },
     baseWebsite,
   ],
 });

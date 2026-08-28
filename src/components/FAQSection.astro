@@ -8,7 +8,7 @@ interface Props {
   name: string;
   heading?: string;
   showDeadlineNote?: boolean;
-  spacing?: "home" | "page";
+  showIndexLink?: boolean;
 }
 
 const {
@@ -16,32 +16,33 @@ const {
   name,
   heading = "Frequently asked questions",
   showDeadlineNote = false,
-  spacing = "page",
+  showIndexLink = true,
 } = Astro.props;
-
-const sectionClass =
-  spacing === "home"
-    ? "py-48 px-12 md:px-20 bg-white"
-    : "max-w-7xl mx-auto px-8 py-12 md:py-16";
 ---
-<section class={sectionClass} aria-labelledby={`${name}-heading`}>
-  <div class={spacing === "home" ? "max-w-[1600px] mx-auto" : ""}>
-    <h2
-      id={`${name}-heading`}
-      class="text-2xl md:text-3xl font-display font-normal text-foreground mb-8"
-    >
-      {heading}
-    </h2>
-    <FaqAccordion items={items} name={name} />
-    {showDeadlineNote && (
-      <div class="mt-8">
-        <FaqDeadlineNote />
-      </div>
-    )}
-    <p class="mt-8 font-body text-base leading-relaxed text-foreground/60">
-      <a href="/faq" class="underline underline-offset-4 hover:opacity-70 transition-opacity">
-        View all frequently asked questions →
-      </a>
-    </p>
+<section class="py-48 px-12 md:px-20 bg-white border-t border-foreground/10" aria-labelledby={`${name}-heading`} data-no-reveal>
+  <div class="max-w-[1600px] mx-auto">
+    <div class="max-w-[800px] mx-auto">
+      <h2
+        id={`${name}-heading`}
+        class="font-display font-normal text-foreground mb-16 leading-[1.05]"
+        style="font-size: clamp(2rem, 4vw, 3.5rem)"
+      >
+        {heading}
+      </h2>
+      <FaqAccordion items={items} name={name} />
+      <slot />
+      {(showDeadlineNote || showIndexLink) && (
+        <div class="mt-16 pt-10 border-t border-foreground/10 space-y-10">
+          {showDeadlineNote && <FaqDeadlineNote />}
+          {showIndexLink && (
+            <p class="font-body text-base leading-relaxed text-foreground/60">
+              <a href="/faq" class="underline underline-offset-4 hover:opacity-70 transition-opacity">
+                View all frequently asked questions →
+              </a>
+            </p>
+          )}
+        </div>
+      )}
+    </div>
   </div>
 </section>

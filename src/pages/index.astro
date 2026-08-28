@@ -6,6 +6,7 @@ import Philosophy from "../components/Philosophy";
 import AppealRequestForm from "../components/AppealRequestForm";
 import Footer from "../components/Footer";
 import FAQSection from "../components/FAQSection.astro";
+import GooglePreferredSource from "../components/GooglePreferredSource.astro";
 import { Toaster } from "../components/ui/toaster";
 import { createHomePageSchema } from "../lib/schemas";
 import { homepageCopyFaqItems } from "../data/faq";
@@ -36,9 +37,14 @@ const schema = createHomePageSchema(homepageFaq);
   </Fragment>
   <div class="min-h-screen">
     <Hero client:load />
+    <div class="px-12 md:px-20 bg-white">
+      <div class="max-w-[1600px] mx-auto">
+        <GooglePreferredSource />
+      </div>
+    </div>
     <About />
     <Philosophy />
-    <FAQSection items={homepageFaq} name="home-faq" spacing="home" showDeadlineNote={true} />
+    <FAQSection items={homepageFaq} name="home-faq" showDeadlineNote={true} />
     <AppealRequestForm client:load />
     <Footer />
     <Toaster client:load />

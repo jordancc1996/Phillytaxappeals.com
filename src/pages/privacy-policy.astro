@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Footer from "../components/Footer";
+import GooglePreferredSource from "../components/GooglePreferredSource.astro";
 import { privacyPolicySchema } from "../lib/schemas";
 
 const title = "Privacy Policy | Philly Tax Appeals";
@@ -45,6 +46,8 @@ const ogImage = "https://phillytaxappeals.com/og-image.jpg";
       <h1 class="font-display text-foreground mb-16 leading-[1.05]" style="font-size: clamp(2.5rem, 5vw, 4rem)">
         Privacy Policy
       </h1>
+
+      <GooglePreferredSource />
 
       <div class="space-y-12 text-foreground">
         <section class="space-y-4">

@@ -1,0 +1,85 @@
+---
+export type BreadcrumbItem = {
+  href?: string;
+  label: string;
+};
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+const lastIndex = items.length - 1;
+const collapseMiddleOnMobile = items.length > 3;
+const first = items[0];
+const last = items[lastIndex];
+const middle = items.slice(1, lastIndex);
+---
+<nav aria-label="Breadcrumb">
+  <ol class="flex max-w-full items-center overflow-hidden font-body text-sm leading-none text-foreground/70">
+    {first && (
+      <li class="flex min-w-0 shrink-0 items-center">
+        {first.href && lastIndex > 0 ? (
+          <a
+            href={first.href}
+            class="breadcrumb-link inline-flex min-h-11 items-center px-1 -mx-1 underline-offset-4 transition-opacity duration-150 ease-out hover:opacity-70 hover:underline"
+          >
+            {first.label}
+          </a>
+        ) : (
+          <span
+            class="inline-flex min-h-11 items-center px-1 -mx-1 text-foreground"
+            aria-current="page"
+          >
+            {first.label}
+          </span>
+        )}
+      </li>
+    )}
+
+    {middle.map((item) => (
+      <li class:list={["min-w-0 items-center", collapseMiddleOnMobile ? "hidden md:flex" : "flex"]}>
+        <span class="mx-3 h-3 w-px shrink-0 bg-foreground/10" aria-hidden="true"></span>
+        {item.href ? (
+          <a
+            href={item.href}
+            class="breadcrumb-link inline-flex min-h-11 items-center px-1 -mx-1 underline-offset-4 transition-opacity duration-150 ease-out hover:opacity-70 hover:underline"
+          >
+            {item.label}
+          </a>
+        ) : (
+          <span class="inline-flex min-h-11 items-center px-1 -mx-1">{item.label}</span>
+        )}
+      </li>
+    ))}
+
+    {collapseMiddleOnMobile && (
+      <li class="flex items-center md:hidden" aria-hidden="true">
+        <span class="mx-3 h-3 w-px shrink-0 bg-foreground/10"></span>
+        <span class="inline-flex min-h-11 items-center">…</span>
+      </li>
+    )}
+
+    {lastIndex > 0 && last && (
+      <li class="flex min-w-0 items-center">
+        <span class="mx-3 h-3 w-px shrink-0 bg-foreground/10" aria-hidden="true"></span>
+        <span
+          class="inline-flex min-h-11 min-w-0 items-center truncate px-1 -mx-1 text-foreground"
+          aria-current="page"
+        >
+          {last.label}
+        </span>
+      </li>
+    )}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumb-link:focus {
+    outline: none;
+  }
+  .breadcrumb-link:focus-visible {
+    outline: 2px solid hsl(var(--foreground));
+    outline-offset: 4px;
+  }
+</style>

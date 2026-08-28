@@ -2,8 +2,8 @@ const Footer = () => {
   return (
     <footer className="py-24 px-12 md:px-20 bg-white border-t border-foreground/10">
       <div className="max-w-[1600px] mx-auto">
-        <div className="grid md:grid-cols-4 gap-16 mb-20">
-          <div className="md:col-span-2 space-y-6">
+        <div className="grid lg:grid-cols-4 gap-16 mb-20">
+          <div className="lg:col-span-2 min-w-0 space-y-6">
             <a href="/" className="block">
               <h3 className="text-4xl font-display text-foreground lowercase hover:opacity-70 transition-opacity">
                 philly tax appeals
@@ -14,7 +14,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div>
+          <div className="min-w-0">
             <h4 className="text-xl font-display text-foreground mb-4">
               Service Areas
             </h4>
@@ -42,7 +42,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="space-y-5">
+          <div className="min-w-0 space-y-5">
             <h4 className="text-xl font-display text-foreground mb-4">
               Contact Us
             </h4>
@@ -63,7 +63,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="mailto:jordan@phillytaxappeals.com" className="hover:text-foreground transition-colors">
+                <a href="mailto:jordan@phillytaxappeals.com" className="break-words hover:text-foreground transition-colors">
                   jordan@phillytaxappeals.com
                 </a>
               </li>
@@ -77,7 +77,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-10 border-t border-foreground/10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
             <p className="text-base font-body text-foreground/50">
               © 2025 Philly Tax Appeals. All rights reserved.
             </p>

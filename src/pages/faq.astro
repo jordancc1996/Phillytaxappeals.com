@@ -2,8 +2,9 @@
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
-import FaqAccordion from "../components/FaqAccordion.astro";
-import FaqDeadlineNote from "../components/FaqDeadlineNote.astro";
+import FAQSection from "../components/FAQSection.astro";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import GooglePreferredSource from "../components/GooglePreferredSource.astro";
 import { createFaqPageSchema } from "../lib/schemas";
 import {
   faqHubSections,
@@ -20,6 +21,7 @@ const canonicalUrl = "https://phillytaxappeals.com/faq";
 const ogImage = "https://phillytaxappeals.com/og-image.jpg";
 const hubAccordionItems = getFaqHubAccordionItems();
 const schema = createFaqPageSchema(canonicalUrl, title, description, hubAccordionItems);
+const countySections = faqHubSections.filter((section) => section.topicId !== "general");
 ---
 <Layout>
   <Fragment slot="head">
@@ -41,60 +43,58 @@ const schema = createFaqPageSchema(canonicalUrl, title, description, hubAccordio
   <div class="min-h-screen bg-background">
     <Navigation client:load variant="dark" />
 
-    <div class="max-w-7xl mx-auto px-8 pt-24 md:pt-28">
-      <nav class="text-sm font-body text-foreground/60" aria-label="Breadcrumb">
-        <a href="/" class="hover:text-foreground transition-colors">
-          Philly Tax Appeals
-        </a>
-        <span class="mx-2">›</span>
-        <span class="text-foreground">Property Tax Appeal FAQ</span>
-      </nav>
+    <div class="px-12 md:px-20 pt-24 md:pt-28">
+      <div class="max-w-[1600px] mx-auto">
+        <div class="max-w-[800px] mx-auto">
+          <Breadcrumb items={[{ href: "/", label: "Home" }, { label: "FAQ" }]} />
+          <h1 class="mt-10 text-5xl md:text-6xl lg:text-7xl font-display font-light mb-12 text-foreground lowercase">
+            Property Tax Appeal FAQ
+          </h1>
+          <p class="text-foreground font-body text-base md:text-lg leading-relaxed">
+            Property tax appeal FAQ answers for Pennsylvania start with county deadlines, not a single statewide date. Use the questions below, then open the county page that matches your property.
+          </p>
+          <GooglePreferredSource />
+        </div>
+      </div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-8 py-12 md:py-16">
-      <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-12 text-foreground lowercase">
-        Property Tax Appeal FAQ
-      </h1>
-
-      <p class="text-foreground font-body text-base md:text-lg leading-relaxed max-w-3xl mb-16">
-        Property tax appeal FAQ answers for Pennsylvania start with county deadlines, not a single statewide date. Use the questions below, then open the county page that matches your property.
-      </p>
-
-      {faqHubSections.map((section) => {
-        const topic = faqTopics[section.topicId];
-        const items = getFaqItemsByIds(section.topicId, section.itemIds);
-        const isGeneral = section.topicId === "general";
-        return (
-          <section class="mb-16">
-            <h2 class="text-2xl md:text-3xl font-display font-normal text-foreground mb-4">
-              {topic.heading}
-            </h2>
-            {topic.href && topic.hrefLabel && (
-              <p class="font-body text-base md:text-lg leading-relaxed text-foreground mb-6">
-                Next:{" "}
-                <a href={topic.href} class="underline underline-offset-4 hover:opacity-70 transition-opacity">
-                  {topic.hrefLabel}
-                </a>
-                .
-              </p>
-            )}
-            {isGeneral ? (
-              <FaqAccordion items={items} name={`faq-${section.topicId}`} />
-            ) : (
-              <div class="space-y-4">
+    <FAQSection
+      items={hubAccordionItems}
+      name="faq-general"
+      heading="Pennsylvania property tax appeals"
+      showDeadlineNote={true}
+      showIndexLink={false}
+    >
+      <div class="mt-16 space-y-16">
+        {countySections.map((section) => {
+          const topic = faqTopics[section.topicId];
+          const items = getFaqItemsByIds(section.topicId, section.itemIds);
+          return (
+            <div>
+              <h2 class="text-2xl md:text-3xl font-display font-normal text-foreground mb-6">
+                {topic.heading}
+              </h2>
+              {topic.href && topic.hrefLabel && (
+                <p class="font-body text-base md:text-lg leading-relaxed text-foreground mb-6">
+                  Next:{" "}
+                  <a href={topic.href} class="underline underline-offset-4 hover:opacity-70 transition-opacity">
+                    {topic.hrefLabel}
+                  </a>
+                  .
+                </p>
+              )}
+              <div class="space-y-7">
                 {items.map((item) => (
                   <p class="font-body text-base md:text-lg leading-relaxed text-foreground">
                     {item.answer}
                   </p>
                 ))}
               </div>
-            )}
-          </section>
-        );
-      })}
-
-      <FaqDeadlineNote />
-    </div>
+            </div>
+          );
+        })}
+      </div>
+    </FAQSection>
 
     <Footer />
   </div>
