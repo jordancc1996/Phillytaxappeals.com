@@ -6,10 +6,10 @@ const baseOrganization = {
   "name": "Philly Tax Appeals",
   "url": "https://phillytaxappeals.com",
   "logo": "https://phillytaxappeals.com/favicon.png",
-  "description": "Professional property tax appeal services in Philadelphia and surrounding counties. We help homeowners and businesses reduce their property tax burden with no upfront costs.",
+  "description": "Professional property tax appeal services in Philadelphia. We help homeowners and businesses reduce their property tax burden with no upfront costs.",
   "priceRange": "$$",
   "telephone": "(267) 632-3162",
-  "email": "jordan@phillytaxappeals.com",
+  "email": "jordancchaplin@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Philadelphia",
@@ -20,21 +20,6 @@ const baseOrganization = {
     {
       "@type": "City",
       "name": "Philadelphia",
-      "containedInPlace": { "@type": "State", "name": "Pennsylvania" }
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Bucks County",
-      "containedInPlace": { "@type": "State", "name": "Pennsylvania" }
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Delaware County",
-      "containedInPlace": { "@type": "State", "name": "Pennsylvania" }
-    },
-    {
-      "@type": "AdministrativeArea",
-      "name": "Montgomery County",
       "containedInPlace": { "@type": "State", "name": "Pennsylvania" }
     }
   ],
@@ -106,7 +91,7 @@ export const createHomePageSchema = (faqItems: FaqSchemaItem[] = []) => ({
       "provider": { "@id": "https://phillytaxappeals.com/#organization" },
       "serviceType": "Property Tax Appeal",
       "description": "Expert property tax appeal representation with no upfront costs. We analyze your property assessment and file appeals to reduce your tax burden.",
-      "areaServed": ["Philadelphia, PA", "Bucks County, PA", "Delaware County, PA", "Montgomery County, PA"],
+      "areaServed": ["Philadelphia, PA"],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Tax Appeal Services",
@@ -162,6 +147,48 @@ export const createCountyPageSchema = (
   ]
 });
 
+export const createPhiladelphiaAreaSchema = (
+  areaName: string,
+  url: string,
+  description: string,
+) => ({
+  "@context": "https://schema.org",
+  "@graph": [
+    baseOrganization,
+    {
+      "@type": "Service",
+      "@id": `${url}#service`,
+      "name": `${areaName} Property Tax Appeal Services`,
+      "provider": { "@id": "https://phillytaxappeals.com/#organization" },
+      "serviceType": "Property Tax Appeal",
+      "areaServed": {
+        "@type": "Place",
+        "name": `${areaName}, Philadelphia`,
+        "containedInPlace": {
+          "@type": "City",
+          "name": "Philadelphia",
+          "containedInPlace": { "@type": "State", "name": "Pennsylvania" },
+        },
+      },
+      "description": description,
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${url}#page`,
+      "url": url,
+      "name": `Philadelphia Property Tax Appeals in ${areaName}`,
+      "isPartOf": { "@id": "https://phillytaxappeals.com/#website" },
+      "about": { "@id": `${url}#service` },
+      "breadcrumb": breadcrumbListNode(url, [
+        { name: "Home", item: SITE_URL },
+        { name: "Philadelphia Property Tax Appeal", item: `${SITE_URL}/philadelphia-property-tax-appeal` },
+        { name: areaName, item: url },
+      ]),
+    },
+    baseWebsite,
+  ],
+});
+
 export const createContactPageSchema = (faqItems: FaqSchemaItem[] = []) => ({
   "@context": "https://schema.org",
   "@graph": [
@@ -171,7 +198,7 @@ export const createContactPageSchema = (faqItems: FaqSchemaItem[] = []) => ({
       "@id": "https://phillytaxappeals.com/contact#page",
       "url": "https://phillytaxappeals.com/contact",
       "name": "Contact Philly Tax Appeals",
-      "description": "Get a free property tax assessment evaluation. Contact our team of property tax appeal experts serving Philadelphia and surrounding counties.",
+      "description": "Get a free property tax assessment evaluation. Contact our team of property tax appeal experts serving Philadelphia.",
       "isPartOf": { "@id": "https://phillytaxappeals.com/#website" },
       "about": { "@id": "https://phillytaxappeals.com/#organization" },
       "breadcrumb": breadcrumbListNode("https://phillytaxappeals.com/contact", [

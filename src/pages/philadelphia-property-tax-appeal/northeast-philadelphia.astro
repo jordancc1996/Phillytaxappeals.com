@@ -1,0 +1,71 @@
+---
+import PhiladelphiaAreaLayout from "../../components/PhiladelphiaAreaLayout.astro";
+import { createPhiladelphiaAreaSchema } from "../../lib/schemas";
+import { getPhiladelphiaArea } from "../../data/philadelphia-areas";
+
+const area = getPhiladelphiaArea("northeast-philadelphia");
+const title = "Northeast Philadelphia Property Tax Appeal - Larger-Lot Homes";
+const metaTitle = `${title} | Philly Tax Appeals`;
+const description =
+  "Northeast Philadelphia property tax appeal help for 2026 twins, detached homes, and larger lots. We use local comps, not Center City sales, at no upfront cost.";
+const canonicalUrl = `https://phillytaxappeals.com${area.href}`;
+const schema = createPhiladelphiaAreaSchema(area.name, canonicalUrl, description);
+const p = "text-foreground font-body text-base md:text-lg leading-relaxed";
+const h2 = "text-2xl md:text-3xl font-display font-normal text-foreground mb-6";
+---
+<PhiladelphiaAreaLayout
+  metaTitle={metaTitle}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  areaName={area.name}
+  areaSlug={area.slug}
+  schema={schema}
+>
+  <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-12 text-foreground lowercase">
+    Philadelphia Property Tax Appeals in Northeast Philadelphia
+  </h1>
+
+  <div class="space-y-16">
+    <section>
+      <h2 class={h2}>Property Tax Assessments in Northeast Philadelphia</h2>
+      <p class={p}>
+        Northeast Philadelphia property tax appeal work uses a different comparable pool than Center City or South Philadelphia. Lots are larger. Many houses are twins or detached. Driveways and garages are typical, not rare. A 20-foot Center City sale has almost no information about a 50-foot Northeast twin. If OPA's model borrows citywide factors, the Northeast house can absorb value that belongs downtown.
+      </p>
+      <p class={`${p} mt-6`}>
+        The stock still includes rows, especially closer to older industrial corridors, but the typical product is a twin or a single on a wider lot than the rest of the city. Mixing a dense row sale into that set understates the land or overstates the building, depending on how the model splits the two. The appeal should keep land and building tied to local Northeast sales.
+      </p>
+      <p class={`${p} mt-6`}>
+        Shopping corridors and highway access affect some streets and not others. A house backing to a commercial parking lot is not the same as a house on a quiet interior block of twins. Those location differences show up in sale prices. They should show up in the assessment.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Appealing an Over-Assessed Northeast Philadelphia Property</h2>
+      <p class={p}>
+        Lot size is the first screen. Two twins with the same bedroom count can sit on lots that differ by thousands of square feet. OPA land tables sometimes flatten that. A survey or the deed dimensions, compared with the land line on the OPA record, is often the whole case.
+      </p>
+      <p class={`${p} mt-6`}>
+        Finished basements, sunrooms, and rear additions are common. Sketches that omit them understate value. Sketches that count a breeze-way or an unheated porch as living area overstate it. Measure what is heated living space and what is not.
+      </p>
+      <p class={`${p} mt-6`}>
+        Age and renovation split the market. A 1950s twin with original baths does not match a fully rebuilt twin with a new kitchen and a finished third floor. Using the rebuilt sale without a condition adjustment is the usual over-assessment on the original house.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Tax Appeals for Northeast Philadelphia Detached Homes</h2>
+      <p class={p}>
+        Detached houses with side yards are scarce in most of Philadelphia and more common in the Northeast. That scarcity downtown is not a reason to import Center City land values. The buyer who wants a driveway and a side yard is shopping in the Northeast, the Northwest, and the suburbs, not on a 16-foot South Philadelphia block. Keep the comparable set in that buyer pool.
+      </p>
+      <p class={`${p} mt-6`}>
+        Twins still dominate many streets. A twin should not be valued as if it were detached. Shared walls, smaller lots, and different sale prices are the point. If OPA applied a single-family detached factor to a twin, the adjustment is the form, not a neighborhood discount.
+      </p>
+      <p class={`${p} mt-6`}>
+        Some Northeast rows remain, often near older commercial streets. Those houses belong in a row comparable set, not in the twin-and-single set. Frontage, parking, and rear access still matter, as they do in South Philadelphia, but the sale list should stay in the Northeast.
+      </p>
+      <p class={`${p} mt-6`}>
+        Commercial-industrial edges and airport or highway noise affect a subset of streets. Those houses trade below otherwise similar twins a mile inland. A few close sales with the same exposure beat a large set of quiet-street twins.
+      </p>
+    </section>
+  </div>
+</PhiladelphiaAreaLayout>

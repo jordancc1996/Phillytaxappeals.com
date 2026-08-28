@@ -7,9 +7,6 @@ interface NavigationProps {
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/bucks-county-property-tax-appeal", label: "Bucks County" },
-  { href: "/delaware-county-property-tax-appeal", label: "Delaware County" },
-  { href: "/montgomery-county-property-tax-appeal", label: "Montgomery County" },
   { href: "/philadelphia-property-tax-appeal", label: "Philadelphia" },
   { href: "/tools", label: "Tools" },
   { href: "/contact", label: "Contact" },

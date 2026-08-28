@@ -1,0 +1,104 @@
+---
+import PhiladelphiaAreaLayout from "../../components/PhiladelphiaAreaLayout.astro";
+import { createPhiladelphiaAreaSchema } from "../../lib/schemas";
+import { getPhiladelphiaArea } from "../../data/philadelphia-areas";
+
+const area = getPhiladelphiaArea("center-city");
+const title = "Center City Property Tax Appeal - Condo Assessment Review";
+const metaTitle = `${title} | Philly Tax Appeals`;
+const description =
+  "Center City property tax appeal help for 2026 condo and co-op assessments. We review OPA values, parking add-ons, and unit comps with no upfront cost.";
+const canonicalUrl = `https://phillytaxappeals.com${area.href}`;
+const schema = createPhiladelphiaAreaSchema(area.name, canonicalUrl, description);
+const p = "text-foreground font-body text-base md:text-lg leading-relaxed";
+const h2 = "text-2xl md:text-3xl font-display font-normal text-foreground mb-6";
+const h3 = "text-xl md:text-2xl font-display font-normal text-foreground mb-4 mt-12";
+---
+<PhiladelphiaAreaLayout
+  metaTitle={metaTitle}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  areaName={area.name}
+  areaSlug={area.slug}
+  schema={schema}
+>
+  <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-12 text-foreground lowercase">
+    Philadelphia Property Tax Appeals in Center City
+  </h1>
+
+  <div class="space-y-16">
+    <section>
+      <h2 class={h2}>Property Tax Assessments in Center City</h2>
+      <p class={p}>
+        Center City property tax appeal files usually start with a condominium or co-op, not a single-family rowhome. OPA still has to value the unit, any deeded or assigned parking, and, in some buildings, storage. Those pieces can sit on separate account numbers even though the owner thinks of them as one home.
+      </p>
+      <p class={`${p} mt-6`}>
+        Converted historic buildings add another layer. A former office or warehouse that is now residences may have floor plates, ceiling heights, and common-area allocations that do not match a purpose-built high-rise next door. Using the tower as a sale comparable without adjusting for those differences overstates many converted units.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Appealing an Over-Assessed Center City Property</h2>
+      <p class={p}>
+        An over-assessment in Center City often comes from the wrong comparable set. A two-bedroom at 15th and Locust is not the same product as a two-bedroom walk-up in Washington Square West, even if both list as Center City condos. Square footage from the declaration, floor level, outdoor space, and whether parking is deeded all change the sale that belongs in the file.
+      </p>
+      <p class={`${p} mt-6`}>
+        HOA or condo association dues do not erase market value, but they do affect what a buyer will pay. A building with a special assessment or deferred facade work can sell below a quieter building with the same bedroom count. That gap belongs in the appeal record, not as a complaint about the association.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Tax Appeals for Center City Condominiums</h2>
+      <p class={p}>
+        Comparing a Center City condo to a rowhome sale is a common OPA shortcut that fails on use, lot, and finish. The rowhome carries land, a roof, and a different tax history. The condo carries percentage interest in common elements. Those are not interchangeable comps.
+      </p>
+      <p class={`${p} mt-6`}>
+        Parking is a frequent second assessment. A deeded space in a garage can be valued as if it were a street-level commercial stall, or ignored when the unit price already assumed parking. Either mistake can be corrected if the deed, the declaration, and recent parking sales in the same garage are in the packet.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Neighborhoods We Serve in Center City</h2>
+
+      <h3 class={h3}>Rittenhouse Square</h3>
+      <p class={p}>
+        Rittenhouse high-rises trade on views, amenities, and building reputation as much as bedroom count. A unit that faces a light well should not be valued off a park-facing sale in the same tower without a location adjustment. Older co-ops on the square also sell on share price and board rules, which OPA does not always map cleanly onto assessed market value.
+      </p>
+      <p class={`${p} mt-6`}>
+        Ground-floor professional offices mixed into residential buildings can pull commercial income methods onto a residential account. The appeal then has to separate the residential unit from any commercial use that is not on the same deed.
+      </p>
+
+      <h3 class={h3}>Old City</h3>
+      <p class={p}>
+        Old City conversions sit in warehouses and lofts with exposed structure, irregular rooms, and limited elevator service. Sales of new glass condos a few blocks west are poor comps for a timber-loft unit with one bath and no deeded parking. The assessment should follow loft-to-loft sales, not the Center City average.
+      </p>
+      <p class={`${p} mt-6`}>
+        Historic fabric also limits what an owner can change. That constraint shows up in sale prices. An appeal that documents facade restrictions and unfinished common areas is stronger than one that only lists square footage.
+      </p>
+
+      <h3 class={h3}>Society Hill</h3>
+      <p class={p}>
+        Society Hill still has colonial and Federal houses next to later infill. A restored house with original floor plan is not a gut-renovated infill on the next block. Using the infill sale without a condition adjustment overstates many of the older houses.
+      </p>
+      <p class={`${p} mt-6`}>
+        Gardens, rear ells, and off-street parking are uneven here. Two houses with the same frontage can have very different rear lots. The OPA record often misses that difference until the appeal file includes a survey or measured sketch.
+      </p>
+
+      <h3 class={h3}>Washington Square West</h3>
+      <p class={p}>
+        Washington Square West mixes small condos, walk-up flats, and a few remaining single-family houses. Density is high and lots are small. A sale of a house with a garage on a nearby street does not support the value of a one-bedroom walk-up with no outdoor space.
+      </p>
+      <p class={`${p} mt-6`}>
+        Buildings that were divided into small units in the 1980s and 1990s often have odd layouts and shared mechanicals. Those units sell at a discount to new construction. The assessment should reflect that discount, not a neighborhood average price per square foot.
+      </p>
+
+      <h3 class={h3}>Logan Square</h3>
+      <p class={p}>
+        Logan Square has a large share of post-war and newer towers plus a smaller set of older walk-ups. Amenity floors, parking ratios, and hotel-condo hybrids create sale prices that do not transfer to a simple residential stack. The comparable set has to stay inside the same product type.
+      </p>
+      <p class={`${p} mt-6`}>
+        Units that face the Vine Street Expressway or a service alley trade below park-facing units in the same building. If OPA applied a single building average, the noisier stack is a candidate for a reduction.
+      </p>
+    </section>
+  </div>
+</PhiladelphiaAreaLayout>

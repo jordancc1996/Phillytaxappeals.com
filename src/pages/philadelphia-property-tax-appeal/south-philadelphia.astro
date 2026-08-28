@@ -1,0 +1,120 @@
+---
+import PhiladelphiaAreaLayout from "../../components/PhiladelphiaAreaLayout.astro";
+import { createPhiladelphiaAreaSchema } from "../../lib/schemas";
+import { getPhiladelphiaArea } from "../../data/philadelphia-areas";
+
+const area = getPhiladelphiaArea("south-philadelphia");
+const title = "South Philadelphia Property Tax Appeal - Rowhome Assessments";
+const metaTitle = `${title} | Philly Tax Appeals`;
+const description =
+  "South Philadelphia property tax appeal help for 2026 rowhomes and expired 10-year abatements. We review OPA comps on narrow blocks with no upfront cost.";
+const canonicalUrl = `https://phillytaxappeals.com${area.href}`;
+const schema = createPhiladelphiaAreaSchema(area.name, canonicalUrl, description);
+const p = "text-foreground font-body text-base md:text-lg leading-relaxed";
+const h2 = "text-2xl md:text-3xl font-display font-normal text-foreground mb-6";
+const h3 = "text-xl md:text-2xl font-display font-normal text-foreground mb-4 mt-12";
+---
+<PhiladelphiaAreaLayout
+  metaTitle={metaTitle}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  areaName={area.name}
+  areaSlug={area.slug}
+  schema={schema}
+>
+  <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-12 text-foreground lowercase">
+    Philadelphia Property Tax Appeals in South Philadelphia
+  </h1>
+
+  <div class="space-y-16">
+    <section>
+      <h2 class={h2}>Property Tax Assessments in South Philadelphia</h2>
+      <p class={p}>
+        South Philadelphia property tax appeal work is mostly about rowhomes and trinities on small lots. Frontage of 14 or 16 feet is common. Depth varies. A house with a rear yard and a house that fills the lot to the alley are not the same product, even when both sit on the same numbered street.
+      </p>
+      <p class={`${p} mt-6`}>
+        Off-street parking is a real premium here because street parking is tight. A rear garage or a driveway cut that a neighbor does not have can explain a sale gap that OPA treats as a general neighborhood increase. The appeal file should show the parking, not assume the assessor already coded it.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Appealing an Over-Assessed South Philadelphia Property</h2>
+      <p class={p}>
+        Comparable selection on a narrow block has to stay on that block or on the next one with the same width and era. A rebuilt house on a wider lot two streets over will overstate a trinity with original stairs and one bath. Condition photos and a simple measurement of lot coverage usually do more work than a citywide price-per-square-foot chart.
+      </p>
+      <p class={`${p} mt-6`}>
+        Many South Philadelphia owners are seeing the first full assessment after a 10-year tax abatement rolls off. The abatement changed the tax bill. It did not freeze the market value forever. When the abatement ends, OPA may also refresh the value using recent renovated sales. That combination can jump both the taxable value and the tax rate base at once.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Tax Appeals for South Philadelphia Rowhomes</h2>
+      <p class={p}>
+        Trinity houses (three floors, one or two rooms per floor) sell in a different band than a full-width three-story with a rear addition. Treating them as the same "South Philly rowhome" is how over-assessments start. The appeal should match story count, rear-ell status, and whether the basement is finished.
+      </p>
+      <p class={`${p} mt-6`}>
+        New infill on a formerly vacant lot can reset the block's sale set. Those houses often have open plans, central air, and parking. Older houses on the same block do not. If OPA averaged the infill into every account, the unrenovated houses are the ones that need a reduction.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Neighborhoods We Serve in South Philadelphia</h2>
+
+      <h3 class={h3}>Queen Village</h3>
+      <p class={p}>
+        Queen Village has some of the smallest historic lots in the city, plus later infill that stretches those lots with rear additions. A colonial-width house with a new kitchen still does not match a double-wide rebuild. Sales along Headhouse and the waterfront also pull in a location premium that does not belong on an interior block without the same walk.
+      </p>
+      <p class={`${p} mt-6`}>
+        Parking here is scarce. A rare driveway can add more to sale price than an extra bedroom. Assessments that ignore that split will overvalue houses with no curb cut and undervalue the few that have one.
+      </p>
+
+      <h3 class={h3}>Bella Vista</h3>
+      <p class={p}>
+        Bella Vista's Italian Market corridor mixes commercial ground floors with residential upper floors. A purely residential house one block off Ninth Street should not be valued as if it had storefront income. Mixed-use accounts need a clean split between the commercial use and the dwelling.
+      </p>
+      <p class={`${p} mt-6`}>
+        Many houses were divided into small apartments and later returned to single-family use. The OPA use code does not always catch up. An appeal can correct the use and the comparable set at the same time.
+      </p>
+
+      <h3 class={h3}>East Passyunk</h3>
+      <p class={p}>
+        East Passyunk Avenue retail and restaurant traffic supports higher prices on the avenue itself. Side streets a few blocks west trade lower. Using an avenue sale for a house on a quiet numbered street overstates the interior block. The reverse error also happens when OPA ignores the avenue premium for a mixed-use building on Passyunk.
+      </p>
+      <p class={`${p} mt-6`}>
+        Renovated two-bath houses with rear decks now sit next to original one-bath houses. The sale set has to stay inside the same finish band, or the original houses absorb someone else's kitchen renovation in their assessment.
+      </p>
+
+      <h3 class={h3}>Pennsport</h3>
+      <p class={p}>
+        Pennsport still has a large stock of two-story and three-story rowhomes with modest lots. Stadium-area development and new rentals closer to the sports complex can leak into residential comps if the file is not limited by use and distance. A long-term owner-occupied house is not a new four-unit rental.
+      </p>
+      <p class={`${p} mt-6`}>
+        Floodplain and insurance cost also show up in sale prices closer to the Delaware. Those costs are not a tax appeal slogan, but they do explain why two similar houses sell differently. The record should note the elevation and recent sales on the same side of the highway.
+      </p>
+
+      <h3 class={h3}>Point Breeze</h3>
+      <p class={p}>
+        Point Breeze has seen a fast mix of spec renovations and remaining original housing. A fully rebuilt house with a roof deck is a poor comparable for a house with original windows and an unfinished basement. Block-level condition is uneven enough that a sale two doors away can still be the wrong comp.
+      </p>
+      <p class={`${p} mt-6`}>
+        Abatement roll-off is common on houses renovated in the mid-2010s. The appeal after the abatement ends should test whether the new value matches current un-abated sales, not the peak renovation sale from the year the work was finished.
+      </p>
+
+      <h3 class={h3}>Girard Estates</h3>
+      <p class={p}>
+        Girard Estates is a planned set of twins and singles with larger yards than the rest of South Philadelphia. Those lots are the point of the neighborhood. Using a dense Passyunk rowhome sale understates or overstates them depending on which way OPA leaned. The comparable pool belongs inside the Estates or on similar twins just outside the gates.
+      </p>
+      <p class={`${p} mt-6`}>
+        Deed restrictions and the look of the street still affect buyers. That is a market fact, not a historic-register argument. Sales inside the Estates already price it. The assessment should follow those sales.
+      </p>
+
+      <h3 class={h3}>Packer Park</h3>
+      <p class={p}>
+        Packer Park's ranch and split-level houses sit on larger lots with driveways, closer in form to Northeast twins than to Queen Village trinities. Comps from dense East Passyunk blocks do not belong here. Sports-complex traffic and stadium-event parking are local factors that show up in sale prices on some streets and not others.
+      </p>
+      <p class={`${p} mt-6`}>
+        Many houses have been expanded with rear additions that the OPA sketch may still show as original ranch footprints. If the sketch is wrong, the value can be wrong in either direction. The appeal starts with a measured sketch that matches the house.
+      </p>
+    </section>
+  </div>
+</PhiladelphiaAreaLayout>

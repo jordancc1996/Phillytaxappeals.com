@@ -14,6 +14,39 @@
       ],
       "destination": "https://phillytaxappeals.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/bucks-county-property-tax-appeal",
+      "has": [
+        {
+          "type": "host",
+          "value": "phillytaxappeals.com"
+        }
+      ],
+      "destination": "https://phillytaxappeals.com/philadelphia-property-tax-appeal",
+      "permanent": true
+    },
+    {
+      "source": "/delaware-county-property-tax-appeal",
+      "has": [
+        {
+          "type": "host",
+          "value": "phillytaxappeals.com"
+        }
+      ],
+      "destination": "https://phillytaxappeals.com/philadelphia-property-tax-appeal",
+      "permanent": true
+    },
+    {
+      "source": "/montgomery-county-property-tax-appeal",
+      "has": [
+        {
+          "type": "host",
+          "value": "phillytaxappeals.com"
+        }
+      ],
+      "destination": "https://phillytaxappeals.com/philadelphia-property-tax-appeal",
+      "permanent": true
     }
   ]
 }

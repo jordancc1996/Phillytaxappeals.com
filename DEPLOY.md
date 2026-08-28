@@ -16,14 +16,22 @@ Static Astro site. Apex host: `https://phillytaxappeals.com`. No Supabase. Do no
 Use the Vercel Preview URL (not apex) until cutover.
 
 - Homepage loads correctly, full nav/footer present
-- All 4 county landing pages load. Confirm no nav, no footer except the privacy policy link, form is prominent:
+- Philadelphia hub and 7 area pages load with site nav/footer:
   - `/philadelphia-property-tax-appeal`
+  - `/philadelphia-property-tax-appeal/center-city`
+  - `/philadelphia-property-tax-appeal/south-philadelphia`
+  - `/philadelphia-property-tax-appeal/north-philadelphia`
+  - `/philadelphia-property-tax-appeal/river-wards`
+  - `/philadelphia-property-tax-appeal/northwest-philadelphia`
+  - `/philadelphia-property-tax-appeal/west-philadelphia`
+  - `/philadelphia-property-tax-appeal/northeast-philadelphia`
+- Old county URLs 308 to the Philadelphia hub (`vercel.json`):
   - `/bucks-county-property-tax-appeal`
   - `/delaware-county-property-tax-appeal`
   - `/montgomery-county-property-tax-appeal`
 - Contact form submits (Formcarry endpoint `https://formcarry.com/s/5KTu8FjHmBp`)
 - `/news` and `/tools` both return 404 or do not exist
-- `/sitemap-index.xml` valid, apex-only, 6 URLs, no `/news` or `/tools`
+- `/sitemap-index.xml` valid, apex-only, 11 URLs, no `/news` or `/tools`
 - `/robots.txt` correct (apex Sitemap line, AI-crawler Allow rules intact)
 - No console errors
 - Mobile layout correct, especially the stripped-down county pages

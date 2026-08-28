@@ -1,9 +1,4 @@
-export type FaqTopicId =
-  | "general"
-  | "philadelphia"
-  | "bucks"
-  | "delaware"
-  | "montgomery";
+export type FaqTopicId = "general" | "philadelphia";
 
 export type FaqItem = {
   id: string;
@@ -93,96 +88,6 @@ export const faqTopics: Record<FaqTopicId, FaqTopic> = {
       },
     ],
   },
-  bucks: {
-    id: "bucks",
-    heading: "Bucks County",
-    href: "/bucks-county-property-tax-appeal",
-    hrefLabel: "Bucks County property tax appeal page",
-    source: "buckscounty.gov",
-    items: [
-      {
-        id: "bucks-deadline-2027",
-        question: "When is the Bucks County 2027 annual appeal deadline?",
-        answer:
-          "The 2027 annual appeal deadline is August 3, 2026. The application, required fee, and documents must be on file or postmarked by that date.",
-      },
-      {
-        id: "bucks-where-to-file",
-        question: "Where do I file a Bucks County assessment appeal?",
-        answer:
-          "Filed with the Bucks County Board of Assessment Appeals, 55 E. Court Street, Doylestown, PA 18901. Phone: 215-348-6219. Email: boa@buckscounty.org.",
-      },
-      {
-        id: "bucks-board-meetings",
-        question: "When does the Bucks County Board of Assessment Appeals meet?",
-        answer: "The Board meets the 1st and 3rd Tuesday of each month at 10 AM.",
-      },
-    ],
-  },
-  delaware: {
-    id: "delaware",
-    heading: "Delaware County",
-    href: "/delaware-county-property-tax-appeal",
-    hrefLabel: "Delaware County property tax appeal page",
-    source: "delcopa.gov",
-    items: [
-      {
-        id: "delco-deadline-2027",
-        question: "When is the Delaware County 2027 annual appeal deadline?",
-        answer: "The 2027 annual appeal deadline is August 1, 2026.",
-      },
-      {
-        id: "delco-how-to-file",
-        question: "Can I email or fax a Delaware County appeal?",
-        answer:
-          "Delaware County does not accept email or fax filings. Appeals must be mailed or hand-delivered.",
-      },
-      {
-        id: "delco-address",
-        question: "Where do I file a Delaware County assessment appeal?",
-        answer:
-          "Address: Board of Assessment & Appeals, Government Center Building, 201 West Front Street, Media, PA 19063. Phone: 610-891-4273.",
-      },
-      {
-        id: "delco-court-appeal",
-        question: "Can I appeal a Delaware County Board decision further?",
-        answer:
-          "A Board decision can be further appealed to the Court of Common Pleas within 30 days of the Board's findings, through the Office of Judicial Support (610-891-4388).",
-      },
-    ],
-  },
-  montgomery: {
-    id: "montgomery",
-    heading: "Montgomery County",
-    href: "/montgomery-county-property-tax-appeal",
-    hrefLabel: "Montgomery County property tax appeal page",
-    source: "montcopa.org",
-    items: [
-      {
-        id: "montco-deadline-2027",
-        question: "When is the Montgomery County annual appeal deadline for the 2027 tax year?",
-        answer:
-          "The annual appeal deadline is August 1, effective for the following tax year. For 2026 filings, this is August 1, 2026, covering the 2027 tax year.",
-      },
-      {
-        id: "montco-residential-fee",
-        question: "What is the Montgomery County filing fee for a single-family home?",
-        answer:
-          "The filing fee for single-family residential properties is $50 (non-refundable), confirmed on the official appeal form.",
-      },
-      {
-        id: "montco-how-to-file",
-        question: "Can I file a Montgomery County annual appeal by email or online?",
-        answer:
-          "No email, fax, or online filing is accepted for annual appeals. Mail: Montgomery County Board of Assessment Appeals, PO Box 311, Norristown, PA 19404-0311. Hand-deliver: One Montgomery Plaza, 3rd Floor, Suite 301, 425 Swede Street, Norristown, PA 19401. Phone: 610-278-3761.",
-      },
-      {
-        id: "montco-hearing-window",
-        question: "When are Montgomery County annual appeal hearings held?",
-        answer: "Annual appeal hearings run from May through October 31.",
-      },
-    ],
-  },
 };
 
 export type FaqHubSection = {
@@ -193,9 +98,6 @@ export type FaqHubSection = {
 export const faqHubSections: FaqHubSection[] = [
   { topicId: "general", itemIds: ["pa-no-statewide-deadline", "typical-appeal-evidence", "change-of-assessment-notice"] },
   { topicId: "philadelphia", itemIds: ["phila-brt-deadline-2027", "phila-flr-deadline-2027"] },
-  { topicId: "bucks", itemIds: ["bucks-deadline-2027"] },
-  { topicId: "delaware", itemIds: ["delco-deadline-2027", "delco-how-to-file"] },
-  { topicId: "montgomery", itemIds: ["montco-deadline-2027", "montco-residential-fee"] },
 ];
 
 export function getFaqItemsByIds(topicId: FaqTopicId, ids: string[]): FaqItem[] {
@@ -222,15 +124,15 @@ export const homepageCopyFaqItems: FaqItem[] = [
   },
   {
     id: "home-counties-served",
-    question: "Which counties do you serve?",
+    question: "Which parts of Philadelphia do you serve?",
     answer:
-      "Whether you are in Bucks County, Delaware County, Montgomery County, or Philadelphia, we support our clients and the communities they call home.",
+      "We handle Philadelphia property tax appeals across Center City, South Philadelphia, North Philadelphia, the River Wards, Northwest Philadelphia, West Philadelphia, and Northeast Philadelphia.",
   },
   {
     id: "home-based-in-philadelphia",
     question: "Where is Philly Tax Appeals based?",
         answer:
-          "Philly Tax Appeals is based in Philadelphia and deeply integrated into the real estate sector. We work tirelessly with property owners in Philadelphia and throughout the surrounding counties.",
+          "Philly Tax Appeals is based in Philadelphia and works with property owners across the city's neighborhoods.",
   },
   {
     id: "home-why-few-appeal",
@@ -255,8 +157,8 @@ export const contactFaqItems: FaqItem[] = [
   },
   {
     id: "contact-counties-served",
-    question: "Which counties can I request an evaluation for?",
-    answer: "We serve Philadelphia, Bucks County, Delaware County, and Montgomery County.",
+    question: "Which areas can I request an evaluation for?",
+    answer: "We serve Philadelphia property owners, including Center City, South Philadelphia, North Philadelphia, the River Wards, Northwest Philadelphia, West Philadelphia, and Northeast Philadelphia.",
   },
   {
     id: "contact-how-to-start",

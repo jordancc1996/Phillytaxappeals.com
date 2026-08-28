@@ -1,0 +1,104 @@
+---
+import PhiladelphiaAreaLayout from "../../components/PhiladelphiaAreaLayout.astro";
+import { createPhiladelphiaAreaSchema } from "../../lib/schemas";
+import { getPhiladelphiaArea } from "../../data/philadelphia-areas";
+
+const area = getPhiladelphiaArea("river-wards");
+const title = "River Wards Property Tax Appeal - Infill Assessment Review";
+const metaTitle = `${title} | Philly Tax Appeals`;
+const description =
+  "River Wards property tax appeal help for 2026 when new infill sales distort older rowhome values. We review OPA comps and conversions with no upfront cost.";
+const canonicalUrl = `https://phillytaxappeals.com${area.href}`;
+const schema = createPhiladelphiaAreaSchema(area.name, canonicalUrl, description);
+const p = "text-foreground font-body text-base md:text-lg leading-relaxed";
+const h2 = "text-2xl md:text-3xl font-display font-normal text-foreground mb-6";
+const h3 = "text-xl md:text-2xl font-display font-normal text-foreground mb-4 mt-12";
+---
+<PhiladelphiaAreaLayout
+  metaTitle={metaTitle}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  areaName={area.name}
+  areaSlug={area.slug}
+  schema={schema}
+>
+  <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-12 text-foreground lowercase">
+    Philadelphia Property Tax Appeals in the River Wards
+  </h1>
+
+  <div class="space-y-16">
+    <section>
+      <h2 class={h2}>Property Tax Assessments in the River Wards</h2>
+      <p class={p}>
+        River Wards property tax appeal files usually turn on new infill sitting next to older rowhomes. A 20-foot-wide new house with a garage and roof deck is not a 15-foot original house with a shared alley. If OPA lets the infill sale set the block, the older house is over-assessed. If OPA ignores the infill entirely, the new house may be under-assessed. Both are appeal questions.
+      </p>
+      <p class={`${p} mt-6`}>
+        Former factories and warehouses converted to lofts or apartments create a third product. Those buildings have different construction, parking, and common-area costs than a street rowhome. They need their own sale set.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Appealing an Over-Assessed River Wards Property</h2>
+      <p class={p}>
+        Sale prices in Fishtown and Northern Liberties moved quickly for several years. Assessments can lag in either direction. A value that was set off a 2021 peak sale may now be high. A value that was never updated after a 2024 renovation may be low. The appeal uses current similar sales, not the neighborhood's reputation.
+      </p>
+      <p class={`${p} mt-6`}>
+        Industrial leftover lots, rail lines, and I-95 buffers still cut prices on some streets. Those locations should not be valued off a Frankford Avenue storefront conversion two blocks away. Distance and use both matter.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Tax Appeals for River Ward Infill and Converted Buildings</h2>
+      <p class={p}>
+        Infill houses often have unfinished third floors or roof decks that the OPA sketch still shows as a two-story house, or the reverse. The sketch has to match the building. Square footage errors of a few hundred feet change the price-per-square-foot story that assessors use.
+      </p>
+      <p class={`${p} mt-6`}>
+        Conversions from industrial use can keep commercial zoning or mixed-use codes after the building is residential. That can pull in the wrong method. The appeal then documents current use, the declaration if it is a condo, and residential sales of similar converted buildings, not active warehouses.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Neighborhoods We Serve in the River Wards</h2>
+
+      <h3 class={h3}>Fishtown</h3>
+      <p class={p}>
+        Fishtown's new three-story infill is now common on blocks that were two-story rowhomes. The new houses sell with parking and open plans. Original houses on the same block often do not. Using the infill as a straight comparable without a condition and garage adjustment overstates the older stock.
+      </p>
+      <p class={`${p} mt-6`}>
+        Commercial ground floors on Girard and Frankford also leak into residential values if the file is sloppy. A dwelling behind a shop is not a pure residential sale. Keep the comparable set on houses, or on mixed-use only when the subject is mixed-use.
+      </p>
+
+      <h3 class={h3}>Northern Liberties</h3>
+      <p class={p}>
+        Northern Liberties has large loft buildings and townhouse infill on former industrial land. A loft with 14-foot ceilings and a shared courtyard is not a street-facing townhouse. Those two products need separate comps even when they share a neighborhood name.
+      </p>
+      <p class={`${p} mt-6`}>
+        Parking packages and extra storage lockers are often separate line items, similar to Center City condos. Confirm whether parking is in the unit price or on its own account before you accept the OPA total.
+      </p>
+
+      <h3 class={h3}>Kensington</h3>
+      <p class={p}>
+        Kensington's sale set is uneven by block. A rebuilt house on a stable street does not support the value of a house on a block with several vacant shells. Neighborhood-wide averages fail here more than in most of the city. The comparable search has to be tight on distance and occupancy.
+      </p>
+      <p class={`${p} mt-6`}>
+        Many properties are still two-story brick with original interiors. New three-story infill on the same numbered street is a different class. Mixing them is the usual path to an inflated assessment on the original house.
+      </p>
+
+      <h3 class={h3}>Port Richmond</h3>
+      <p class={p}>
+        Port Richmond still has a large owner-occupied Polish and mixed working-area housing stock, plus newer buyers on some streets closer to Fishtown. That border moves. A sale on the Fishtown-facing edge is a weak comparable for a house several blocks east near the industrial waterfront.
+      </p>
+      <p class={`${p} mt-6`}>
+        Corner stores with apartments above need a mixed-use analysis. Valuing them as if they were extra-large houses ignores the commercial income and the commercial risk. Valuing them as strip retail ignores the dwelling. The appeal should say which use is on the deed.
+      </p>
+
+      <h3 class={h3}>Bridesburg</h3>
+      <p class={p}>
+        Bridesburg is more isolated by water and industry than Fishtown. Sale volume is lower. OPA sometimes reaches into Port Richmond or the Lower Northeast for comps. Those markets are not the same. When volume is thin, fewer comps with a closer location beat a larger set from the wrong place.
+      </p>
+      <p class={`${p} mt-6`}>
+        Larger lots and some singles exist here that do not match dense Fishtown infill. Lot size should be in the first screen of the comparable search, not an afterthought.
+      </p>
+    </section>
+  </div>
+</PhiladelphiaAreaLayout>

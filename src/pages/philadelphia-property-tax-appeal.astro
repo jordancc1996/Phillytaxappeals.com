@@ -6,13 +6,16 @@ import Footer from "../components/Footer";
 import FAQSection from "../components/FAQSection.astro";
 import Breadcrumb from "../components/Breadcrumb.astro";
 import GooglePreferredSource from "../components/GooglePreferredSource.astro";
+import PhiladelphiaAreas from "../components/PhiladelphiaAreas";
 import { Toaster } from "../components/ui/toaster";
 import { createCountyPageSchema } from "../lib/schemas";
 import { getCountyFaqItems } from "../data/faq";
 import philadelphiaImage from "../assets/philadelphia.jpg";
 
-const title = "Philadelphia Property Tax Appeals | Expert Tax Reduction Services";
-const description = "Professional Philadelphia property tax appeal services. Reduce your property tax burden with our local expertise and no upfront costs. Free assessment evaluation.";
+const title = "Philadelphia Property Tax Appeal - Citywide OPA Review";
+const metaTitle = `${title} | Philly Tax Appeals`;
+const description =
+  "Philadelphia property tax appeal help for 2026 starts with your OPA notice. We review city assessments and file BRT appeals with no upfront cost to you.";
 const canonicalUrl = "https://phillytaxappeals.com/philadelphia-property-tax-appeal";
 const ogImage = "https://phillytaxappeals.com/og-image.jpg";
 const pageFaq = getCountyFaqItems("philadelphia");
@@ -21,17 +24,17 @@ const imageSrc = typeof philadelphiaImage === "string" ? philadelphiaImage : phi
 ---
 <Layout>
   <Fragment slot="head">
-    <title>{title}</title>
+    <title>{metaTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={metaTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content="Philly Tax Appeals" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={metaTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
@@ -40,13 +43,17 @@ const imageSrc = typeof philadelphiaImage === "string" ? philadelphiaImage : phi
     <Navigation client:load variant="dark" />
 
     <div class="max-w-7xl mx-auto px-8 pt-24 md:pt-28">
-      <Breadcrumb items={[{ href: "/", label: "Home" }, { label: "Philadelphia" }]} />
+      <Breadcrumb items={[{ href: "/", label: "Home" }, { label: "Philadelphia Property Tax Appeal" }]} />
     </div>
 
     <div class="max-w-7xl mx-auto px-8 py-12 md:py-16">
       <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-12 text-foreground lowercase">
         Philadelphia Property Tax Appeals
       </h1>
+
+      <p class="text-foreground font-body text-base md:text-lg leading-relaxed mb-16 max-w-3xl">
+        Philadelphia property tax appeal work begins with the Office of Property Assessment, which values every parcel in the city. A Philly tax appeal service then tests that value against sales of similar properties and, when the number is too high, files with the Board of Revision of Taxes.
+      </p>
 
       <div class="mb-16" data-reveal>
         <img
@@ -61,23 +68,19 @@ const imageSrc = typeof philadelphiaImage === "string" ? philadelphiaImage : phi
       <div class="grid md:grid-cols-2 gap-x-24 gap-y-16">
         <div>
           <h2 class="text-2xl md:text-3xl font-display font-normal text-foreground mb-6">
-            Philadelphia Property Tax Expertise
+            How a Philadelphia Property Assessment Appeal Works
           </h2>
           <p class="text-foreground font-body text-base md:text-lg leading-relaxed">
-            In Philadelphia, our property tax appeal experts bring unparalleled expertise navigating the city's assessment system. Our team knows the local process inside and out. Learn more about our{" "}
-            <a href="/" class="underline underline-offset-4 hover:opacity-70 transition-opacity">
-              Philadelphia tax appeal services
-            </a>
-            .
+            OPA mails a Notice of Valuation each cycle. The First Level Review deadline for the 2027 tax year is September 1, 2026. The formal BRT deadline is October 5, 2026. Those dates apply citywide. The evidence does not. A Center City condo, a South Philadelphia trinity, and a Northeast twin do not share the same comparable pool.
           </p>
         </div>
 
         <div>
           <h2 class="text-2xl md:text-3xl font-display font-normal text-foreground mb-6">
-            Philadelphia City Assessment System
+            Why Neighborhood Sales Matter
           </h2>
           <p class="text-foreground font-body text-base md:text-lg leading-relaxed">
-            Philadelphia's assessment system has unique characteristics that require specialized knowledge. We leverage our experience to build compelling cases for tax reduction.
+            Philadelphia assessments often drift when OPA leans on sales from a different building type or a hotter block. An appeal is a record of what your property actually is: lot size, finish, parking, abatement status, and the sales that match those facts.
           </p>
         </div>
 
@@ -86,20 +89,26 @@ const imageSrc = typeof philadelphiaImage === "string" ? philadelphiaImage : phi
             No Upfront Costs for Tax Appeals
           </h2>
           <p class="text-foreground font-body text-base md:text-lg leading-relaxed">
-            Start with a free evaluation of your property assessment. We work on contingency, ensuring our interests are aligned with achieving savings for you.
+            Start with a free evaluation of your property assessment. We work on contingency, so you pay only if the assessed value comes down.
           </p>
         </div>
 
         <div>
           <h2 class="text-2xl md:text-3xl font-display font-normal text-foreground mb-6">
-            Proven Philadelphia Tax Appeal Results
+            Citywide Filing, Local Evidence
           </h2>
           <p class="text-foreground font-body text-base md:text-lg leading-relaxed">
-            Our Philadelphia roots and track record speak for themselves. We've helped countless city property owners reduce their tax burden through effective appeals.
+            We file Philadelphia property tax appeals for owners across the city. The pages below cover the assessment issues that show up in each area. Open the one that matches your property, then use the form on this page if you want a review. See also our{" "}
+            <a href="/tools" class="underline underline-offset-4 hover:opacity-70 transition-opacity">
+              Philadelphia property tax resources
+            </a>
+            .
           </p>
         </div>
       </div>
     </div>
+
+    <PhiladelphiaAreas />
 
     <div class="max-w-7xl mx-auto px-8">
       <GooglePreferredSource />

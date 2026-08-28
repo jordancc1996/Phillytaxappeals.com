@@ -1,0 +1,112 @@
+---
+import PhiladelphiaAreaLayout from "../../components/PhiladelphiaAreaLayout.astro";
+import { createPhiladelphiaAreaSchema } from "../../lib/schemas";
+import { getPhiladelphiaArea } from "../../data/philadelphia-areas";
+
+const area = getPhiladelphiaArea("northwest-philadelphia");
+const title = "Northwest Philadelphia Property Tax Appeal - Single-Family Homes";
+const metaTitle = `${title} | Philly Tax Appeals`;
+const description =
+  "Northwest Philadelphia property tax appeal help for 2026 twins, stone houses, and hillside lots. We review OPA land and building values with no upfront cost.";
+const canonicalUrl = `https://phillytaxappeals.com${area.href}`;
+const schema = createPhiladelphiaAreaSchema(area.name, canonicalUrl, description);
+const p = "text-foreground font-body text-base md:text-lg leading-relaxed";
+const h2 = "text-2xl md:text-3xl font-display font-normal text-foreground mb-6";
+const h3 = "text-xl md:text-2xl font-display font-normal text-foreground mb-4 mt-12";
+---
+<PhiladelphiaAreaLayout
+  metaTitle={metaTitle}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  areaName={area.name}
+  areaSlug={area.slug}
+  schema={schema}
+>
+  <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-12 text-foreground lowercase">
+    Philadelphia Property Tax Appeals in Northwest Philadelphia
+  </h1>
+
+  <div class="space-y-16">
+    <section>
+      <h2 class={h2}>Property Tax Assessments in Northwest Philadelphia</h2>
+      <p class={p}>
+        Northwest Philadelphia property tax appeal work is about detached and semi-detached houses, not 16-foot rowhomes. Lots are larger. Many houses are stone. Grade changes from the Wissahickon and the Schuylkill mean two lots with the same frontage can have very different usable yards. OPA land tables do not always capture that.
+      </p>
+      <p class={`${p} mt-6`}>
+        A twin in Roxborough and a twin in Packer Park are not interchangeable. Construction, lot, and the comparable pool are local. The appeal should stay inside Northwest sales of the same form: single, twin, or small row.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Appealing an Over-Assessed Northwest Philadelphia Property</h2>
+      <p class={p}>
+        Hillside lots in Manayunk and parts of Roxborough can show as generous square footage on a map while offering a steep, unusable rear. Buyers discount that. If the assessment prices the lot as a flat Chestnut Hill garden, the land value is too high. A site visit note and a simple topographic description belong in the file.
+      </p>
+      <p class={`${p} mt-6`}>
+        Historic stone houses in Chestnut Hill and Mount Airy have high replacement cost and unique layouts. Cost approach numbers can overshoot what the houses actually sell for. The better test is recent sales of similar stone or stucco houses, adjusted for acreage and condition, not a generic "large Northwest home" average.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Tax Appeals for Northwest Philadelphia Single-Family Homes</h2>
+      <p class={p}>
+        Garage count, finished third floors, and in-law suites change value more here than in dense South Philadelphia, because the buyer pool expects those features on larger lots. Missing them in the sketch understates value. Inventing them overstates it. Start with a sketch that matches the house.
+      </p>
+      <p class={`${p} mt-6`}>
+        Commercial strips on Main Street, Germantown Avenue, and Ridge Avenue should not set residential values a block off the corridor. Mixed-use buildings on those streets need their own analysis.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Neighborhoods We Serve in Northwest Philadelphia</h2>
+
+      <h3 class={h3}>Manayunk</h3>
+      <p class={p}>
+        Manayunk houses climb steep streets above Main Street. A house with a usable rear yard is not the same as a house whose rear is a retaining wall. Parking is a premium because street grades and snow make on-street parking harder than in Center City. A garage under the house is a feature OPA sometimes misses or over-credits.
+      </p>
+      <p class={`${p} mt-6`}>
+        Flood-prone parcels near the canal and the Schuylkill sell at a discount to hillside houses. That discount should appear in the comparable set, not as a generic neighborhood factor applied to every Manayunk account.
+      </p>
+
+      <h3 class={h3}>Roxborough</h3>
+      <p class={p}>
+        Roxborough has twins, singles, and some rows on larger lots than the lower river wards. New infill on Ridge Avenue and side streets can look like Fishtown product. Those new houses are a poor comparable for a 1950s twin with original baths. Keep the sale list inside the same decade and form.
+      </p>
+      <p class={`${p} mt-6`}>
+        Some lots back to wooded slopes. That can be an amenity or a maintenance cost. Sales of similar backing lots are better evidence than a flat-lot sale of the same bedroom count.
+      </p>
+
+      <h3 class={h3}>East Falls</h3>
+      <p class={p}>
+        East Falls mixes apartment buildings near the river with singles and twins up the hill toward the park. A river-facing rental building is not a comparable for an owner-occupied twin on a quiet street. Use and building type have to match before location along Kelly Drive is even discussed.
+      </p>
+      <p class={`${p} mt-6`}>
+        Institutional neighbors (universities, hospitals) add parking pressure on some blocks. That can cut single-family sale prices. Document it with nearby residential sales, not with a complaint about the institution.
+      </p>
+
+      <h3 class={h3}>Chestnut Hill</h3>
+      <p class={p}>
+        Chestnut Hill's stone houses, large lots, and commercial village create a market that does not follow Center City condo math or South Philadelphia rowhome math. A carriage house or a house with a separate cottage on the lot may be one account or two. The deed and the OPA accounts have to match before value is argued.
+      </p>
+      <p class={`${p} mt-6`}>
+        Unique architecture makes brute-force price per square foot unreliable. Two stone houses with the same floor area can sell far apart because of lot, condition, and whether the kitchen has been opened. The comparable set should be other Hill houses, even if that means fewer sales.
+      </p>
+
+      <h3 class={h3}>Mount Airy</h3>
+      <p class={p}>
+        Mount Airy has stone twins and singles on generous lots, plus a commercial spine on Germantown Avenue. East and West Mount Airy do not share one price level. Crossing the avenue for a comparable without a location adjustment is a common OPA error.
+      </p>
+      <p class={`${p} mt-6`}>
+        Multi-unit conversions of large houses exist here too. A three-unit house should not be valued as a luxury single because the facade is stone. Unit count and actual use drive the method.
+      </p>
+
+      <h3 class={h3}>Germantown</h3>
+      <p class={p}>
+        Germantown's housing stock ranges from colonial and Victorian singles to dense rows and apartment houses. A neighborhood average fails. The comparable search has to lock building type first, then stay close in distance.
+      </p>
+      <p class={`${p} mt-6`}>
+        Historic houses with large footprints and deferred mechanicals often sell below replacement cost. A cost-heavy assessment will overstate them. Recent sales of similar large, older Germantown houses are the better test.
+      </p>
+    </section>
+  </div>
+</PhiladelphiaAreaLayout>

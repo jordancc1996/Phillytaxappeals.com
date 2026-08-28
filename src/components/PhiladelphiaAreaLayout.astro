@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation";
+import AppealRequestForm from "../components/AppealRequestForm";
+import Footer from "../components/Footer";
+import Breadcrumb from "../components/Breadcrumb.astro";
+import GooglePreferredSource from "../components/GooglePreferredSource.astro";
+import PhiladelphiaAreas from "../components/PhiladelphiaAreas";
+import { Toaster } from "../components/ui/toaster";
+import { PHILADELPHIA_HUB_HREF } from "../data/philadelphia-areas";
+
+interface Props {
+  metaTitle: string;
+  description: string;
+  canonicalUrl: string;
+  areaName: string;
+  areaSlug: string;
+  schema: unknown;
+}
+
+const { metaTitle, description, canonicalUrl, areaName, areaSlug, schema } = Astro.props;
+const ogImage = "https://phillytaxappeals.com/og-image.jpg";
+---
+<Layout>
+  <Fragment slot="head">
+    <title>{metaTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Philly Tax Appeals" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={metaTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+  <div class="min-h-screen bg-background">
+    <Navigation client:load variant="dark" />
+
+    <div class="max-w-7xl mx-auto px-8 pt-24 md:pt-28">
+      <Breadcrumb
+        items={[
+          { href: "/", label: "Home" },
+          { href: PHILADELPHIA_HUB_HREF, label: "Philadelphia Property Tax Appeal" },
+          { label: areaName },
+        ]}
+      />
+    </div>
+
+    <div class="max-w-7xl mx-auto px-8 py-12 md:py-16">
+      <slot />
+      <p class="mt-16 text-foreground font-body text-base md:text-lg leading-relaxed">
+        For citywide deadlines, OPA notices, and BRT filing, return to the{" "}
+        <a href={PHILADELPHIA_HUB_HREF} class="underline underline-offset-4 hover:opacity-70 transition-opacity">
+          Philadelphia property tax appeal
+        </a>
+        {" "}hub.
+      </p>
+    </div>
+
+    <PhiladelphiaAreas variant="compact" excludeSlug={areaSlug} />
+
+    <div class="max-w-7xl mx-auto px-8">
+      <GooglePreferredSource />
+    </div>
+
+    <AppealRequestForm client:load />
+    <Footer />
+    <Toaster client:load />
+  </div>
+</Layout>

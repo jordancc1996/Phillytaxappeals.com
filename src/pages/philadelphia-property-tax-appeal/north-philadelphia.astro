@@ -1,0 +1,104 @@
+---
+import PhiladelphiaAreaLayout from "../../components/PhiladelphiaAreaLayout.astro";
+import { createPhiladelphiaAreaSchema } from "../../lib/schemas";
+import { getPhiladelphiaArea } from "../../data/philadelphia-areas";
+
+const area = getPhiladelphiaArea("north-philadelphia");
+const title = "North Philadelphia Property Tax Appeal - Mixed-Block Assessments";
+const metaTitle = `${title} | Philly Tax Appeals`;
+const description =
+  "North Philadelphia property tax appeal help for 2026 when new-construction sales skew OPA comps. We match older rowhomes to the right sales, no upfront cost.";
+const canonicalUrl = `https://phillytaxappeals.com${area.href}`;
+const schema = createPhiladelphiaAreaSchema(area.name, canonicalUrl, description);
+const p = "text-foreground font-body text-base md:text-lg leading-relaxed";
+const h2 = "text-2xl md:text-3xl font-display font-normal text-foreground mb-6";
+const h3 = "text-xl md:text-2xl font-display font-normal text-foreground mb-4 mt-12";
+---
+<PhiladelphiaAreaLayout
+  metaTitle={metaTitle}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  areaName={area.name}
+  areaSlug={area.slug}
+  schema={schema}
+>
+  <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-12 text-foreground lowercase">
+    Philadelphia Property Tax Appeals in North Philadelphia
+  </h1>
+
+  <div class="space-y-16">
+    <section>
+      <h2 class={h2}>Property Tax Assessments in North Philadelphia</h2>
+      <p class={p}>
+        North Philadelphia property tax appeal cases often start with a block that no longer has one housing type. A new three-story infill, a flipped shell, and a long-held original rowhome can sit on the same side of the street. OPA can treat the highest recent sale as the neighborhood standard. That is how an unrenovated house inherits someone else's kitchen and roof deck.
+      </p>
+      <p class={`${p} mt-6`}>
+        Converted multi-unit buildings add a second problem. A house that still has three meters and three kitchens is not a single-family comparable, even if the facade matches the house next door. Use code and unit count have to be right before the sales comparison means anything.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Appealing an Over-Assessed North Philadelphia Property</h2>
+      <p class={p}>
+        The file has to separate new-construction sales from sales of original houses. New construction usually has open plans, new mechanicals, and warranties. Original houses often have deferred work that a buyer prices as a discount. Mixing those two sale lists produces a value that fits neither house.
+      </p>
+      <p class={`${p} mt-6`}>
+        Rapid price change also cuts both ways. A sale from 18 months ago on a now-hot block may be stale. A sale of a fully rebuilt house last month may be too rich for the unrestored house two doors down. The appeal should use the most similar properties, not the most recent ones of any kind.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Tax Appeals for North Philadelphia Renovated and Unrenovated Blocks</h2>
+      <p class={p}>
+        Condition is the main adjustment in this part of the city. Photographs of the kitchen, bath, roof, and rear yard do more than a neighborhood average. If the OPA sketch still shows a shell that was finished three years ago, the value can be too low. If the sketch shows a finished house that is still a shell, the value can be too high. Both errors are appeal issues.
+      </p>
+      <p class={`${p} mt-6`}>
+        Vacant lots and demolition on the same block also affect what a buyer will pay. Those facts belong in the narrative. They are not a request for a blight discount. They are an explanation of the sale set.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Neighborhoods We Serve in North Philadelphia</h2>
+
+      <h3 class={h3}>Fairmount</h3>
+      <p class={p}>
+        Fairmount's park-adjacent streets support higher prices than blocks farther north. A house facing the park or a museum lawn is not the same as a house on a commercial corridor two blocks away. Using a park-block sale for an interior street overstates the quieter house.
+      </p>
+      <p class={`${p} mt-6`}>
+        Many Fairmount houses were converted to apartments and later returned to single-family use. Extra kitchens and rear decks from the rental years still appear in some OPA sketches. The appeal should match the current layout, not the 1990s conversion.
+      </p>
+
+      <h3 class={h3}>Spring Garden</h3>
+      <p class={p}>
+        Spring Garden has larger Italianate and brownstone houses plus later condos in industrial buildings. A full house with a side yard is not a loft condo. Those two products need separate comparable sets even when they share a zip code.
+      </p>
+      <p class={`${p} mt-6`}>
+        Institutional neighbors (hospitals, schools) change parking and street activity. That can support or cut sale prices depending on the block. The file should stay on residential sales of the same building type, not pull in a converted office sale.
+      </p>
+
+      <h3 class={h3}>Brewerytown</h3>
+      <p class={p}>
+        Brewerytown still has former industrial buildings next to two-story rowhomes. New apartment buildings reset some street rents and some sale prices. An owner-occupied rowhome should not be valued off a new rental stack. The use is different and the buyer pool is different.
+      </p>
+      <p class={`${p} mt-6`}>
+        Spec renovations with rooftop decks have been common. Those sales belong with other renovated houses, not with original two-story homes that have not been opened up. Mixing them is the typical over-assessment pattern here.
+      </p>
+
+      <h3 class={h3}>Strawberry Mansion</h3>
+      <p class={p}>
+        Strawberry Mansion has a wide range of condition on short blocks. A restored house near the park can sell far above a boarded house on the next street. OPA neighborhood averages smear that gap. The comparable set has to stay on occupied, similar-condition houses.
+      </p>
+      <p class={`${p} mt-6`}>
+        Larger twins and singles exist here that do not match the small Fairmount rowhome set. Lot size and building footprint should drive the sales search, not the planning-district name.
+      </p>
+
+      <h3 class={h3}>Temple area</h3>
+      <p class={p}>
+        Student rental demand around Temple University supports prices and rents that owner-occupied houses a few blocks away do not earn. A house with four bedrooms leased by the room is not a family rowhome. If OPA used a high student-rental sale for a long-term owner-occupied house, the appeal is about use and buyer pool, not about the university itself.
+      </p>
+      <p class={`${p} mt-6`}>
+        Multi-unit conversions with extra kitchens and rear additions are common. Unit count on the OPA record is often stale. Correcting the unit count can raise or lower value. The point is to match the building that actually exists.
+      </p>
+    </section>
+  </div>
+</PhiladelphiaAreaLayout>

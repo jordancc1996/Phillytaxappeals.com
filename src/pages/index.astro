@@ -11,8 +11,9 @@ import { Toaster } from "../components/ui/toaster";
 import { createHomePageSchema } from "../lib/schemas";
 import { homepageCopyFaqItems } from "../data/faq";
 
-const title = "Philadelphia Property Tax Appeal Services | Philly Tax Appeals";
-const description = "Expert property tax appeal services in Philadelphia, Bucks, Delaware, and Montgomery Counties. Reduce your property taxes with no upfront costs. Free evaluation available.";
+const title = "Philly Tax Appeal Service - Lower Your Assessment";
+const metaTitle = `${title} | Philly Tax Appeals`;
+const description = "Philly tax appeal service for Philadelphia property owners. Reduce your 2026 OPA assessment with no upfront costs. Free evaluation available.";
 const canonicalUrl = "https://phillytaxappeals.com";
 const ogImage = "https://phillytaxappeals.com/og-image.jpg";
 const homepageFaq = homepageCopyFaqItems;
@@ -20,17 +21,17 @@ const schema = createHomePageSchema(homepageFaq);
 ---
 <Layout>
   <Fragment slot="head">
-    <title>{title}</title>
+    <title>{metaTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={metaTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content="Philly Tax Appeals" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={metaTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />

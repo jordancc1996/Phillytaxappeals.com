@@ -1,3 +1,5 @@
+import { philadelphiaAreas, PHILADELPHIA_HUB_HREF } from "../data/philadelphia-areas";
+
 const Footer = () => {
   return (
     <footer className="py-24 px-12 md:px-20 bg-white border-t border-foreground/10">
@@ -10,35 +12,27 @@ const Footer = () => {
               </h3>
             </a>
             <p className="text-lg font-body text-foreground leading-relaxed max-w-lg">
-              Expert property tax appeal services for Philadelphia and surrounding counties. Reducing your tax burden with proven strategies and local expertise.
+              Expert property tax appeal services for Philadelphia. Reducing your tax burden with proven strategies and local expertise.
             </p>
           </div>
 
           <div className="min-w-0">
             <h4 className="text-xl font-display text-foreground mb-4">
-              Service Areas
+              Philadelphia Areas We Serve
             </h4>
             <ul className="space-y-3 text-base font-body text-foreground/70">
               <li>
-                <a href="/bucks-county-property-tax-appeal" className="hover:text-foreground transition-colors">
-                  Bucks County Property Tax Appeals
-                </a>
-              </li>
-              <li>
-                <a href="/delaware-county-property-tax-appeal" className="hover:text-foreground transition-colors">
-                  Delaware County Property Tax Appeals
-                </a>
-              </li>
-              <li>
-                <a href="/montgomery-county-property-tax-appeal" className="hover:text-foreground transition-colors">
-                  Montgomery County Property Tax Appeals
-                </a>
-              </li>
-              <li>
-                <a href="/philadelphia-property-tax-appeal" className="hover:text-foreground transition-colors">
+                <a href={PHILADELPHIA_HUB_HREF} className="hover:text-foreground transition-colors">
                   Philadelphia Property Tax Appeals
                 </a>
               </li>
+              {philadelphiaAreas.map((area) => (
+                <li key={area.slug}>
+                  <a href={area.href} className="hover:text-foreground transition-colors">
+                    {area.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -58,13 +52,18 @@ const Footer = () => {
                 </a>
               </li>
               <li>
+                <a href="/tools" className="hover:text-foreground transition-colors">
+                  Tools
+                </a>
+              </li>
+              <li>
                 <a href="/contact" className="hover:text-foreground transition-colors">
                   Request an Appeal
                 </a>
               </li>
               <li>
-                <a href="mailto:jordan@phillytaxappeals.com" className="break-words hover:text-foreground transition-colors">
-                  jordan@phillytaxappeals.com
+                <a href="mailto:jordancchaplin@gmail.com" className="break-words hover:text-foreground transition-colors">
+                  jordancchaplin@gmail.com
                 </a>
               </li>
               <li>
@@ -79,7 +78,7 @@ const Footer = () => {
         <div className="pt-10 border-t border-foreground/10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
             <p className="text-base font-body text-foreground/50">
-              © 2025 Philly Tax Appeals. All rights reserved.
+              © 2026 Philly Tax Appeals. All rights reserved.
             </p>
             <a href="/privacy-policy" className="text-base font-body text-foreground/50 hover:text-foreground transition-colors">
               Privacy Policy

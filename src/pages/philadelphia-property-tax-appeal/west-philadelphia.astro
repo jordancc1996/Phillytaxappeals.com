@@ -1,0 +1,71 @@
+---
+import PhiladelphiaAreaLayout from "../../components/PhiladelphiaAreaLayout.astro";
+import { createPhiladelphiaAreaSchema } from "../../lib/schemas";
+import { getPhiladelphiaArea } from "../../data/philadelphia-areas";
+
+const area = getPhiladelphiaArea("west-philadelphia");
+const title = "West Philadelphia Property Tax Appeal - University-Area Rentals";
+const metaTitle = `${title} | Philly Tax Appeals`;
+const description =
+  "West Philadelphia property tax appeal help for 2026 twins, rowhomes, and Penn/Drexel rentals. We review mixed owner and investor comps with no upfront cost.";
+const canonicalUrl = `https://phillytaxappeals.com${area.href}`;
+const schema = createPhiladelphiaAreaSchema(area.name, canonicalUrl, description);
+const p = "text-foreground font-body text-base md:text-lg leading-relaxed";
+const h2 = "text-2xl md:text-3xl font-display font-normal text-foreground mb-6";
+---
+<PhiladelphiaAreaLayout
+  metaTitle={metaTitle}
+  description={description}
+  canonicalUrl={canonicalUrl}
+  areaName={area.name}
+  areaSlug={area.slug}
+  schema={schema}
+>
+  <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-12 text-foreground lowercase">
+    Philadelphia Property Tax Appeals in West Philadelphia
+  </h1>
+
+  <div class="space-y-16">
+    <section>
+      <h2 class={h2}>Property Tax Assessments in West Philadelphia</h2>
+      <p class={p}>
+        West Philadelphia property tax appeal work has to deal with a block that mixes owner-occupied houses and investor rentals, often in the same row. Near Penn and Drexel, a house leased by the bedroom can sell on a cap-rate story. A family-occupied twin two doors down does not. If OPA uses the investor sale as the comparable, the owner-occupied house is usually over-assessed.
+      </p>
+      <p class={`${p} mt-6`}>
+        The housing stock is twins, rowhomes, and large historic singles. Those three forms do not share a price per square foot. A 5,000-square-foot stone house on a deep lot is not a 1,400-square-foot brick row, even when both are "West Philly." The comparable search has to lock form and lot before it locks neighborhood name.
+      </p>
+      <p class={`${p} mt-6`}>
+        Institutional expansion, student housing, and university-affiliated rentals change sale prices on some streets and not others. Distance to campus is not a flat premium. A house on a busy transit street with commercial ground floors trades differently from a house on a residential block of twins. The file should stay inside the same street type.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Appealing an Over-Assessed West Philadelphia Property</h2>
+      <p class={p}>
+        Use code errors are common. A house that still shows as a single-family dwelling on the OPA record may have three kitchens and three leases. The reverse is also true: a former rooming house that is now a single family can still carry a multi-unit value. Photographs, leases or the lack of them, and the interior layout decide which comparable set is honest.
+      </p>
+      <p class={`${p} mt-6`}>
+        Large historic singles often have high replacement cost and deferred systems. Cost approach figures can outrun what buyers pay. Recent sales of similar large houses, adjusted for condition and lot, are the better test. If those sales are scarce, a smaller set of close matches beats a large set of twins.
+      </p>
+      <p class={`${p} mt-6`}>
+        Abatements on renovated rentals can hide a jump that arrives when the abatement ends. The tax bill change is not the same as a market-value change, but OPA may also refresh the value using renovated investor sales. The appeal after roll-off should compare the house to current un-abated sales of the same use, not to the peak renovation sale.
+      </p>
+    </section>
+
+    <section>
+      <h2 class={h2}>Tax Appeals for West Philadelphia University-Area Rentals</h2>
+      <p class={p}>
+        Investor sales near Penn and Drexel often price extra bedrooms and basement units that an owner-occupied house does not have. Counting those extra rooms into a family house overstates it. The appeal should match bedroom count and legal unit count, not "West Philly average rent."
+      </p>
+      <p class={`${p} mt-6`}>
+        Purpose-built student apartments and large conversions are a different product from a twin with one extra kitchen. Using a 40-unit building sale to value a twin is the wrong method. Using a twin sale to value a 40-unit building is also wrong. Keep the set inside the same density.
+      </p>
+      <p class={`${p} mt-6`}>
+        Owner-occupied twins a few blocks off the campus edge still need campus-adjacent sales screened out if those sales were investor-to-investor. The buyer pool is the point. A parent buying a house for a student is not the same buyer as a household that intends to live there. Sale prices can overlap. They do not always.
+      </p>
+      <p class={`${p} mt-6`}>
+        Parking, rear cottages, and garages on deep lots are easy for OPA to miss or to double count. Confirm whether a rear building is on the same account. A missing rear unit understates value. A rear building that was demolished but remains on the sketch overstates it.
+      </p>
+    </section>
+  </div>
+</PhiladelphiaAreaLayout>
