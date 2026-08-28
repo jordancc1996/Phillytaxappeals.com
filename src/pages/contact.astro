@@ -1,0 +1,107 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation";
+import AppealRequestForm from "../components/AppealRequestForm";
+import Footer from "../components/Footer";
+import FAQSection from "../components/FAQSection.astro";
+import { Toaster } from "../components/ui/toaster";
+import { createContactPageSchema } from "../lib/schemas";
+import { contactFaqItems } from "../data/faq";
+import contactImage from "../assets/contact-philly.jpg";
+
+const title = "Free Property Tax Evaluation | Contact Philly Tax Appeals";
+const description = "Get a free property tax assessment evaluation. Contact our team of property tax appeal experts serving Philadelphia, Bucks, Delaware, and Montgomery Counties.";
+const canonicalUrl = "https://phillytaxappeals.com/contact";
+const ogImage = "https://phillytaxappeals.com/og-image.jpg";
+const contactImageSrc = typeof contactImage === "string" ? contactImage : contactImage.src;
+const pageFaq = contactFaqItems;
+const schema = createContactPageSchema(pageFaq);
+---
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Philly Tax Appeals" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+  <div class="min-h-screen bg-background">
+    <Navigation client:load variant="dark" />
+
+    <div class="max-w-7xl mx-auto px-8 pt-24 md:pt-28">
+      <nav class="text-sm font-body text-foreground/60" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-foreground transition-colors">
+          Philly Tax Appeals
+        </a>
+        <span class="mx-2">›</span>
+        <span class="text-foreground">Contact Us</span>
+      </nav>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-8 py-12 md:py-16">
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-12 text-foreground lowercase">
+        Get a Free Property Tax Evaluation
+      </h1>
+
+      <div class="mb-16" data-reveal>
+        <img
+          src={contactImageSrc}
+          alt="Philadelphia skyline at golden hour with waterfront reflection"
+          class="w-full h-[400px] object-cover rounded-sm"
+          width="1600"
+          height="400"
+        />
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-x-24 gap-y-12 mb-16">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-display font-normal text-foreground mb-6">
+            Get Your Free Evaluation
+          </h2>
+          <p class="text-foreground font-body text-base md:text-lg leading-relaxed">
+            Request your free property tax evaluation today by filling out the form below, and our team will review your assessment at no cost. We serve{" "}
+            <a href="/philadelphia-property-tax-appeal" class="underline underline-offset-4 hover:opacity-70 transition-opacity">
+              Philadelphia
+            </a>
+            ,{" "}
+            <a href="/bucks-county-property-tax-appeal" class="underline underline-offset-4 hover:opacity-70 transition-opacity">
+              Bucks County
+            </a>
+            ,{" "}
+            <a href="/delaware-county-property-tax-appeal" class="underline underline-offset-4 hover:opacity-70 transition-opacity">
+              Delaware County
+            </a>
+            , and{" "}
+            <a href="/montgomery-county-property-tax-appeal" class="underline underline-offset-4 hover:opacity-70 transition-opacity">
+              Montgomery County
+            </a>
+            .
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl md:text-3xl font-display font-normal text-foreground mb-6">
+            No Upfront Costs
+          </h2>
+          <p class="text-foreground font-body text-base md:text-lg leading-relaxed">
+            We work on contingency, which means you only pay if we successfully reduce your property tax assessment. Our interests are aligned with yours—achieving real savings for your property.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <FAQSection items={pageFaq} name="contact-faq" />
+    <AppealRequestForm client:load />
+    <Footer />
+    <Toaster client:load />
+  </div>
+</Layout>

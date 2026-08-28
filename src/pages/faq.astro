@@ -1,0 +1,101 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import FaqDeadlineNote from "../components/FaqDeadlineNote.astro";
+import { createFaqPageSchema } from "../lib/schemas";
+import {
+  faqHubSections,
+  faqTopics,
+  getFaqHubAccordionItems,
+  getFaqItemsByIds,
+} from "../data/faq";
+
+const title = "Property Tax Appeal FAQ - Pennsylvania County Deadlines";
+const metaTitle = `${title} | Philly Tax Appeals`;
+const description =
+  "Property tax appeal FAQ for Pennsylvania counties, including Philadelphia's October 5, 2026 BRT deadline. Confirm dates on each county's official site.";
+const canonicalUrl = "https://phillytaxappeals.com/faq";
+const ogImage = "https://phillytaxappeals.com/og-image.jpg";
+const hubAccordionItems = getFaqHubAccordionItems();
+const schema = createFaqPageSchema(canonicalUrl, title, description, hubAccordionItems);
+---
+<Layout>
+  <Fragment slot="head">
+    <title>{metaTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Philly Tax Appeals" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={metaTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+  <div class="min-h-screen bg-background">
+    <Navigation client:load variant="dark" />
+
+    <div class="max-w-7xl mx-auto px-8 pt-24 md:pt-28">
+      <nav class="text-sm font-body text-foreground/60" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-foreground transition-colors">
+          Philly Tax Appeals
+        </a>
+        <span class="mx-2">›</span>
+        <span class="text-foreground">Property Tax Appeal FAQ</span>
+      </nav>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-8 py-12 md:py-16">
+      <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-12 text-foreground lowercase">
+        Property Tax Appeal FAQ
+      </h1>
+
+      <p class="text-foreground font-body text-base md:text-lg leading-relaxed max-w-3xl mb-16">
+        Property tax appeal FAQ answers for Pennsylvania start with county deadlines, not a single statewide date. Use the questions below, then open the county page that matches your property.
+      </p>
+
+      {faqHubSections.map((section) => {
+        const topic = faqTopics[section.topicId];
+        const items = getFaqItemsByIds(section.topicId, section.itemIds);
+        const isGeneral = section.topicId === "general";
+        return (
+          <section class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-display font-normal text-foreground mb-4">
+              {topic.heading}
+            </h2>
+            {topic.href && topic.hrefLabel && (
+              <p class="font-body text-base md:text-lg leading-relaxed text-foreground mb-6">
+                Next:{" "}
+                <a href={topic.href} class="underline underline-offset-4 hover:opacity-70 transition-opacity">
+                  {topic.hrefLabel}
+                </a>
+                .
+              </p>
+            )}
+            {isGeneral ? (
+              <FaqAccordion items={items} name={`faq-${section.topicId}`} />
+            ) : (
+              <div class="space-y-4">
+                {items.map((item) => (
+                  <p class="font-body text-base md:text-lg leading-relaxed text-foreground">
+                    {item.answer}
+                  </p>
+                ))}
+              </div>
+            )}
+          </section>
+        );
+      })}
+
+      <FaqDeadlineNote />
+    </div>
+
+    <Footer />
+  </div>
+</Layout>

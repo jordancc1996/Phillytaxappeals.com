@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const title = "Page Not Found | Philly Tax Appeals";
+const description = "This page does not exist. Return to Philly Tax Appeals for property tax appeal services in Philadelphia and surrounding counties.";
+const canonicalUrl = "https://phillytaxappeals.com/404";
+const ogImage = "https://phillytaxappeals.com/og-image.jpg";
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${canonicalUrl}#page`,
+  "url": canonicalUrl,
+  "name": title,
+  "description": description,
+  "isPartOf": { "@id": "https://phillytaxappeals.com/#website" },
+};
+---
+<Layout>
+  <Fragment slot="head">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Philly Tax Appeals" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  </Fragment>
+  <div class="flex min-h-screen items-center justify-center bg-gray-100">
+    <div class="text-center">
+      <h1 class="mb-4 text-4xl font-bold">404</h1>
+      <p class="mb-4 text-xl text-gray-600">Oops! Page not found</p>
+      <a href="/" class="text-blue-500 underline hover:text-blue-700">
+        Return to Home
+      </a>
+    </div>
+  </div>
+</Layout>

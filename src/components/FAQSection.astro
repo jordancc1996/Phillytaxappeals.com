@@ -1,0 +1,47 @@
+---
+import type { FaqItem } from "../data/faq";
+import FaqAccordion from "./FaqAccordion.astro";
+import FaqDeadlineNote from "./FaqDeadlineNote.astro";
+
+interface Props {
+  items: FaqItem[];
+  name: string;
+  heading?: string;
+  showDeadlineNote?: boolean;
+  spacing?: "home" | "page";
+}
+
+const {
+  items,
+  name,
+  heading = "Frequently asked questions",
+  showDeadlineNote = false,
+  spacing = "page",
+} = Astro.props;
+
+const sectionClass =
+  spacing === "home"
+    ? "py-48 px-12 md:px-20 bg-white"
+    : "max-w-7xl mx-auto px-8 py-12 md:py-16";
+---
+<section class={sectionClass} aria-labelledby={`${name}-heading`}>
+  <div class={spacing === "home" ? "max-w-[1600px] mx-auto" : ""}>
+    <h2
+      id={`${name}-heading`}
+      class="text-2xl md:text-3xl font-display font-normal text-foreground mb-8"
+    >
+      {heading}
+    </h2>
+    <FaqAccordion items={items} name={name} />
+    {showDeadlineNote && (
+      <div class="mt-8">
+        <FaqDeadlineNote />
+      </div>
+    )}
+    <p class="mt-8 font-body text-base leading-relaxed text-foreground/60">
+      <a href="/faq" class="underline underline-offset-4 hover:opacity-70 transition-opacity">
+        View all frequently asked questions →
+      </a>
+    </p>
+  </div>
+</section>

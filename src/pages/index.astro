@@ -1,8 +1,46 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero";
+import About from "../components/About";
+import Philosophy from "../components/Philosophy";
+import AppealRequestForm from "../components/AppealRequestForm";
+import Footer from "../components/Footer";
+import FAQSection from "../components/FAQSection.astro";
+import { Toaster } from "../components/ui/toaster";
+import { createHomePageSchema } from "../lib/schemas";
+import { homepageCopyFaqItems } from "../data/faq";
+
+const title = "Philadelphia Property Tax Appeal Services | Philly Tax Appeals";
+const description = "Expert property tax appeal services in Philadelphia, Bucks, Delaware, and Montgomery Counties. Reduce your property taxes with no upfront costs. Free evaluation available.";
+const canonicalUrl = "https://phillytaxappeals.com";
+const ogImage = "https://phillytaxappeals.com/og-image.jpg";
+const homepageFaq = homepageCopyFaqItems;
+const schema = createHomePageSchema(homepageFaq);
 ---
 <Layout>
   <Fragment slot="head">
-    <title>Philly Tax Appeals | Professional Real Estate Tax Appeal Services</title>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content="Philly Tax Appeals" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </Fragment>
+  <div class="min-h-screen">
+    <Hero client:load />
+    <About />
+    <Philosophy />
+    <FAQSection items={homepageFaq} name="home-faq" spacing="home" showDeadlineNote={true} />
+    <AppealRequestForm client:load />
+    <Footer />
+    <Toaster client:load />
+  </div>
 </Layout>

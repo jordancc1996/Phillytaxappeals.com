@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import ScrollReveal from "../components/ScrollReveal";
+import GooglePreferredSource from "../components/GooglePreferredSource.astro";
 ---
 <!doctype html>
 <html lang="en">
@@ -9,9 +11,12 @@ import "../styles/global.css";
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script is:inline async src="https://news.google.com/swg/js/v1/publisher.js"></script>
     <slot name="head" />
   </head>
   <body>
     <slot />
+    <GooglePreferredSource />
+    <ScrollReveal client:load />
   </body>
 </html>

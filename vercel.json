@@ -1,0 +1,19 @@
+{
+  "buildCommand": "npm run build",
+  "installCommand": "npm install --legacy-peer-deps",
+  "outputDirectory": "dist",
+  "framework": "astro",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.phillytaxappeals.com"
+        }
+      ],
+      "destination": "https://phillytaxappeals.com/:path*",
+      "permanent": true
+    }
+  ]
+}
