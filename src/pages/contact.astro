@@ -11,8 +11,10 @@ import { createContactPageSchema } from "../lib/schemas";
 import { contactFaqItems } from "../data/faq";
 import contactImage from "../assets/contact-philly.jpg";
 
-const title = "Free Property Tax Evaluation | Contact Philly Tax Appeals";
-const description = "Get a free property tax assessment evaluation. Contact our team of property tax appeal experts serving Philadelphia.";
+const title = "Philadelphia Tax Appeal Appraisal - Free Evaluation";
+const metaTitle = `${title} | Philly Tax Appeals`;
+const description =
+  "Philadelphia tax appeal appraisal services with no upfront cost. We review your OPA assessment and outline real savings before you pay anything at all.";
 const canonicalUrl = "https://phillytaxappeals.com/contact";
 const ogImage = "https://phillytaxappeals.com/og-image.jpg";
 const contactImageSrc = typeof contactImage === "string" ? contactImage : contactImage.src;
@@ -21,17 +23,17 @@ const schema = createContactPageSchema(pageFaq);
 ---
 <Layout>
   <Fragment slot="head">
-    <title>{title}</title>
+    <title>{metaTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalUrl} />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={metaTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content="Philly Tax Appeals" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={metaTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
@@ -45,8 +47,12 @@ const schema = createContactPageSchema(pageFaq);
 
     <div class="max-w-7xl mx-auto px-8 py-12 md:py-16">
       <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-light mb-12 text-foreground lowercase">
-        Get a Free Property Tax Evaluation
+        Philadelphia Tax Appeal Appraisal
       </h1>
+
+      <p class="text-foreground font-body text-base md:text-lg leading-relaxed mb-12 max-w-3xl">
+        A Philadelphia tax appeal appraisal starts with a free evaluation of your OPA assessment, completed within 2 business days. Need help with your Philadelphia property tax appeal? Use the form on this page for a free evaluation.
+      </p>
 
       <div class="mb-16" data-reveal>
         <img

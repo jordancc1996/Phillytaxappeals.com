@@ -86,6 +86,12 @@ export const faqTopics: Record<FaqTopicId, FaqTopic> = {
         question: "Where is the Board of Revision of Taxes located?",
         answer: "BRT address: 601 Walnut Street, Suite 325 East, Philadelphia, PA 19106.",
       },
+      {
+        id: "phila-formal-appraisal",
+        question: "Do I need a formal appraisal to appeal my Philadelphia property tax assessment?",
+        answer:
+          "Philly Tax Appeals provides an appraisal-style comparable review as part of the free evaluation, so a separate paid appraisal usually is not necessary before filing.",
+      },
     ],
   },
 };
@@ -139,6 +145,12 @@ export const homepageCopyFaqItems: FaqItem[] = [
     question: "Why do so few homeowners appeal their assessments?",
     answer:
       "The National Taxpayers Union estimates 60% of all United States properties are over assessed while fewer than 5% of homeowners appeal their assessments because they do not know they can.",
+  },
+  {
+    id: "home-assessment-too-high",
+    question: "What if my Philadelphia property assessment is too high?",
+    answer:
+      "If the OPA notice does not match the property's condition or recent comparable sales, the assessment may be too high. That is grounds to challenge the value. Philly Tax Appeals reviews it at no upfront cost before anything is filed.",
   },
 ];
 

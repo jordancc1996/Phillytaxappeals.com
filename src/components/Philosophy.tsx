@@ -22,7 +22,7 @@ const Philosophy = () => {
             </h2>
             <div className="space-y-7 text-foreground">
               <p className="text-xl md:text-2xl font-body leading-relaxed">
-                Philly Tax Appeals is committed to providing transparent and professional re-assessments with a focus on achieving savings for our clients. We combine local expertise with proven strategies to deliver results that matter. We're here to ensure your re-assessment is a story told accurately.
+                Philly Tax Appeals is committed to providing transparent and professional reassessments with a focus on achieving savings for our clients. We combine local expertise with proven strategies to deliver results that matter. We're here to ensure your reassessment is a story told accurately.
               </p>
               <p className="text-xl md:text-2xl font-body leading-relaxed">
                 The National Taxpayers Union estimates 60% of all United States properties are over assessed while fewer than 5% of homeowners appeal their assessments because they do not know they can. Philly Tax Appeals makes sure that our clients understand assessments and have an opportunity to take advantage of substantial savings.
