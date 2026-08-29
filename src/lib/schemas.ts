@@ -5,7 +5,7 @@ const baseOrganization = {
   "@id": "https://phillytaxappeals.com/#organization",
   "name": "Philly Tax Appeals",
   "url": "https://phillytaxappeals.com",
-  "logo": "https://phillytaxappeals.com/favicon.png",
+  "logo": "https://phillytaxappeals.com/icon-512.png",
   "description": "Professional property tax appeal services in Philadelphia. We help homeowners and businesses reduce their property tax burden with no upfront costs.",
   "priceRange": "$$",
   "telephone": "(267) 632-3162",
